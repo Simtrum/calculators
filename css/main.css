@@ -47,7 +47,7 @@
 .icons p{
   width: 200px;
   font-size: 20px;
-  margin: 0px 0px 0px 5px;
+  margin: 0px 100px 0px 5px;
 }
 .icons img{
   margin-left:0px;
@@ -64,5 +64,8 @@
 
 
 .menu li img{
-   border:solid 1px black;
+  width:300px;
+  height:200px;
+
+  border:solid 1px black;
 }
