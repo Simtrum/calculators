@@ -40,7 +40,9 @@
   display: block;
   font-size: 30px;
 }
-
+.title span{
+  font-size: 25px;
+}
 .icons p{
   width: 200px;
   margin: 20px 10px 20px 20px;
@@ -49,8 +51,35 @@
   margin: auto;
   text-align: left;
   width: 800px;
+  color:black;
 
+}
+.coll{
+  margin:auto;
+  width: 1200px;
+  color: black;
+}
+.col h5{
+    font-size: 15px;
+     font-weight: bold;
 }
 .col-xs-5{
   margin-left: 45px;
+}
+
+.banner span{
+ margin-left: 5px;
+ color:#03448c;
+}
+.banner p{
+  margin-left: 5px;
+}
+
+.banner{
+  background-color: #e6e6e6;
+}
+.mapouter{
+  margin-left: 880px;
+  margin-top: -190px;
+
 }
