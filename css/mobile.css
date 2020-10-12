@@ -7,7 +7,7 @@
   .title{
     display: block;
     font-size: 140%;
-    margin-left:0%;
+    margin-left:1%;
   }
   .title span{
     font-size: 90%;
@@ -32,14 +32,9 @@
   .col h5{
       font-size: 80%;
        font-weight: bold;
-       width:60%
-  }
-  .col-xs-5{
-    margin-left: 5%;
   }
 
   .banner span{
-   margin-left: 1%;
    color:#03448c;
   }
   .banner p{

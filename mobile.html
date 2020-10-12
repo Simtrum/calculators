@@ -59,17 +59,18 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
       <fieldset class="input">
         <legend><b>Input</b></legend>
-        <div class="box">
         <div class="row bottom_align_row">
-          <div class="col-xs-5">
-            <h5>Optical Power, P: </h5>
+          <div class="col">
+            <h5>Optical Power,P:</h5>
             <div class="input-group">
                 <input  type="number" class="form-control" ng-model="Optical" ng-change="myFunc()">
                 <span class="input-group-addon">W</span>
             </div>
           </div>
-          <div class="col-xs-5">
-            <h5>Fiber Core Diameter, D: </h5>
+        </div>
+          <div class="row bottom_align_row">
+          <div class="col">
+            <h5>Fiber Core Diameter,D:</h5>
             <div class="input-group">
                 <input  type="number" class="form-control" ng-model="diameter" ng-change="myFunc()">
                 <span class="input-group-addon">µm</span>
@@ -77,29 +78,33 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
           </div>
         </div>
           <div class="row bottom_align_row">
-            <div class="col-xs-5">
+            <div class="col">
               <h5>Fiber Numerical Aperture:</h5>
               <div class="input-group">
                   <input type="number" class="form-control" ng-model="NA" ng-change="myFunc()">
                   <span class="input-group-addon"></span>
-              </div><br>
+              </div>
             </div>
         </div>
-        </div>
+      <br>
       </fieldset><br><br><br>
 
         <fieldset class="output">
           <legend><b>Output</b></legend>
           <div class="row bottom_align_row">
-              <div class="col-xs-5">
-                <h5>Divergence Solid Angle,$\Omega$:</h5>
-                <div class="input-group">
-                    <input type="number" class="form-control" ng-model="ohm" readonly/>
-                    <span class="input-group-addon">Steradian (sr)</span>
-                </div>
+
+            <div class="col">
+              <h5>Angle,$\theta$:</h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="radian" readonly/>
+                  <span class="input-group-addon">radian</span>
               </div>
-              <div class="col-xs-5">
-                <h5>Fiber Core Area, A:</h5>
+            </div>
+          </div>
+            <div class="row bottom_align_row">
+
+              <div class="col">
+                <h5>Fiber Core Area,A:</h5>
                 <div class="input-group">
                     <input type="number" class="form-control" ng-model="Area" readonly/>
                     <span class="input-group-addon">µm$^2$</span>
@@ -108,20 +113,25 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
           </div>
 
           <div class="row bottom_align_row">
-            <div class="col-xs-5">
-              <h5>Radiance R:</h5>
+            <div class="col">
+              <h5>Radiance,R:</h5>
               <div class="input-group">
                   <input type="number" class="form-control" ng-model="Radiance" readonly/>
                   <span class="input-group-addon">W/(cm$^2$ sr)</span>
               </div>
             </div>
-            <div class="col-xs-5">
-              <h5>angle $\theta$:</h5>
+          </div>
+          <div class="row bottom_align_row">
+
+            <div class="col">
+              <h5>Beam's Divergence Solid Angle,$\Omega$:</h5>
               <div class="input-group">
-                  <input type="number" class="form-control" ng-model="radian" readonly/>
-                  <span class="input-group-addon">radian</span>
+                  <input type="number" class="form-control" ng-model="ohm" readonly/>
+                  <span class="input-group-addon">Steradian (sr)</span>
               </div>
             </div>
+
+
         </div><br>
       </fieldset><br><br><br><br><br>
     </div>
