@@ -1,68 +1,54 @@
-*{
-  margin: 0;
-  padding:0;
-  font-family: sans-serif;
-}
 
+  .logo img{
+    width: 40%;
+    margin-top: 3%;
+    margin-left: -13%;
+  }
+  .title{
+    display: block;
+    font-size: 140%;
+    margin-left:0%;
+  }
+  .title span{
+    font-size: 90%;
+  }
+  .icons p{
+    margin-left: 3%;
+    width: 200px;
+    margin: 20px 10px 20px 20px;
+  }
+  .col{
+    margin:auto;
+    text-align: left;
+    width: 80%;
+    color:black;
 
-.menu ul{
-  display: inline-flex;
-  margin:50px;
-}
-.menu ul li{
-  list-style: none;
-  margin:0 20px;
-  color: black;
-  cursor:pointer;
-}
-.logo img{
-  width: 200px;
-  margin-top: 10px;
-}
-.title{
-  display: block;
-  font-size: 30px;
-}
-.title span{
-  font-size: 25px;
-}
-.icons p{
-  width: 200px;
-  margin: 20px 10px 20px 20px;
-}
-.col{
-  margin: auto;
-  text-align: left;
-  width: 400px;
-  color:black;
+  }
+  .coll{
+    margin:auto;
+    width: 90%;
+    color: black;
+  }
+  .col h5{
+      font-size: 80%;
+       font-weight: bold;
+       width:60%
+  }
+  .col-xs-5{
+    margin-left: 5%;
+  }
 
-}
-.coll{
-  margin:auto;
-  width: 600px;
-  color: black;
-}
-.col h5{
-    font-size: 15px;
-     font-weight: bold;
-}
-.col-xs-5{
-  margin-left: 45px;
-}
+  .banner span{
+   margin-left: 1%;
+   color:#03448c;
+  }
+  .banner p{
+    margin-left: 1%;
+  }
 
-.banner span{
- margin-left: 5px;
- color:#03448c;
-}
-.banner p{
-  margin-left: 5px;
-}
-
-.banner{
-  background-color: #e6e6e6;
-}
-.mapouter{
-  margin-left: 400px;
-  margin-top: -190px;
-
-}
+  .banner{
+    background-color: #e6e6e6;
+  }
+  .input-group span{
+    font-size: 55%;
+  }
