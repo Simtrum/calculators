@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -26,7 +27,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
 </head>
   <body ng-app="main">
-  
+
 
 
     <div class="row" id="Diffraction_limited" ng-controller="control_panel">
@@ -41,7 +42,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
   <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
   <div class="banner-content">
-    <h1 class="title"><span class="glyphicon glyphicon-collapse-down"></span>Diffraction-limited angular resolution</h1>
+    <h1 class="title"><span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Phase Retardation of Light</h1>
 
   </div>
   </div>
@@ -50,43 +51,50 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
       <div class="col">
         <div id="info_Diffraction_limited" class="collapse" >
-          <p style="text-align:left">This calcaulator will help you computes the radiance of a laser beam propagating in a multi-mode or double-clad optical fiber</p>
-          <b><h2 style="text-align:left;"> $\theta$ = arcsin(NA) </h2></b>
-          <b><h2 style="text-align:left;"> $\Omega$ = $\pi$NA$^2$ &nbsp;&nbsp;&nbsp;&nbsp; $\Omega$ = 2$\pi$(1-cos$\theta$)</h2></b>
-          <b><h2 style="text-align:left;"> A = $\pi\frac{D^2}{4}$  &nbsp;&nbsp;&nbsp;&nbsp; R = $\frac{P}{A\Omega}$</h2></b>
-          <p style="text-align:left;">Optical Power, <b>P</b>; Fiber Core Diameter, <b>D</b>; Fiber Numerical Aperture, <b>NA</b></p>
-          <p style="text-align:left;">Beam's Divergence Solid Angle, <b>$\Omega$</b>; Fiber Core Area, <b>A</b>; Radiance, <b>R</b></p>
-      </div><br>
+          <p style="text-align:left;">This Calculator Will Help You To Calculate phase retardation of light at non-normal incidence of birefringent crystal when the optical axis is parallel to the crystal surface and perpendicular to the plane of incidence</p>
+            <b><h2 style="text-align:left;"> $\delta$ =$\frac{2 \pi d}{\lambda}$ (n$_e$- n$_o$) </h2></b>
+              <p style="text-align:left;"> The ordinary Refraction Refractive Index <b>n$_o$</b>; The extra-ordinary refraction refractive index <b>n$_e$</b>; Wavelength <b>$\lambda$</b>; Thickness of The Crystal <b>d</b>;</p>
+              <p style="text-align:left;">Phase retardation $\delta$; </p>
+          </div><br>
 
       <fieldset class="input">
         <legend><b>Input</b></legend>
         <div class="row bottom_align_row">
           <div class="col">
-            <h5>Optical Power,P:</h5>
+            <h5>Ordinary refraction refractive index, n$_0$: </h5>
             <div class="input-group">
-                <input  type="number" class="form-control" ng-model="Optical" ng-change="myFunc()">
-                <span class="input-group-addon">W</span>
+                <input  type="number" class="form-control" ng-model="n0" ng-change="myFunc();">
+                <span class="input-group-addon"></span>
             </div>
           </div>
         </div>
           <div class="row bottom_align_row">
           <div class="col">
-            <h5>Fiber Core Diameter,D:</h5>
-            <div class="input-group">
-                <input  type="number" class="form-control" ng-model="diameter" ng-change="myFunc()">
-                <span class="input-group-addon">µm</span>
+            <h5> Extra-ordinary refraction refractive index, n$_e$</h5>
+              <div class="input-group">
+                  <input  type="number" class="form-control" ng-model="ne" ng-change="myFunc();">
+                  <span class="input-group-addon"></span>
             </div>
           </div>
         </div>
-          <div class="row bottom_align_row">
-            <div class="col">
-              <h5>Fiber Numerical Aperture:</h5>
+        <div class="row bottom_align_row">
+        <div class="col">
+          <h5>Wavelength, $\lambda$:</h5>
               <div class="input-group">
-                  <input type="number" class="form-control" ng-model="NA" ng-change="myFunc()">
-                  <span class="input-group-addon"></span>
-              </div>
-            </div>
+                  <input type="number" class="form-control" ng-model="nm" ng-change="myFunc();">
+                  <span class="input-group-addon">nm</span>
+          </div>
         </div>
+      </div>
+      <div class="row bottom_align_row">
+      <div class="col">
+        <h5>Thickness of the crystal, d:</h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="mm" ng-change="myFunc();">
+                  <span class="input-group-addon">mm</span>
+        </div>
+      </div>
+    </div>
       <br>
       </fieldset><br><br><br>
 
@@ -95,45 +103,15 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
           <div class="row bottom_align_row">
 
             <div class="col">
-              <h5>Angle,$\theta$:</h5>
+              <h5>Phase Retardation, $\delta$:</h5>
               <div class="input-group">
-                  <input type="number" class="form-control" ng-model="radian" readonly/>
+                  <input type="number" class="form-control" ng-model="fringe" readonly/>
                   <span class="input-group-addon">radian</span>
               </div>
             </div>
-          </div>
-            <div class="row bottom_align_row">
-
-              <div class="col">
-                <h5>Fiber Core Area,A:</h5>
-                <div class="input-group">
-                    <input type="number" class="form-control" ng-model="Area" readonly/>
-                    <span class="input-group-addon">µm$^2$</span>
-                </div>
-              </div>
-          </div>
-
-          <div class="row bottom_align_row">
-            <div class="col">
-              <h5>Radiance,R:</h5>
-              <div class="input-group">
-                  <input type="number" class="form-control" ng-model="Radiance" readonly/>
-                  <span class="input-group-addon">W/(cm$^2$ sr)</span>
-              </div>
-            </div>
-          </div>
-          <div class="row bottom_align_row">
-
-            <div class="col">
-              <h5>Beam's Divergence Solid Angle,$\Omega$:</h5>
-              <div class="input-group">
-                  <input type="number" class="form-control" ng-model="ohm" readonly/>
-                  <span class="input-group-addon">Steradian (sr)</span>
-              </div>
-            </div>
+          </div><br>
 
 
-        </div><br>
       </fieldset><br><br><br><br><br>
     </div>
 
@@ -158,21 +136,14 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
   </body>
 
 
-
   <script>
     angular.module('main', [])
       .controller('control_panel', ['$scope', function($scope) {
 
-
-
         $scope.myFunc = function() {
-          $scope.Diameter=$scope.diameter*1e-6
-
-
-          $scope.radian=Math.asin($scope.NA);
-          $scope.ohm=Math.PI*Math.pow($scope.NA,2);
-          $scope.Area=(Math.PI*Math.pow($scope.Diameter,2)/4)*1e12;
-          $scope.Radiance=($scope.Optical/($scope.Area*$scope.ohm))*1e5;
+$scope.wavelength=$scope.nm*1e-9;
+$scope.thickness=$scope.mm*1e-3;
+$scope.fringe=(2*Math.PI*$scope.thickness*($scope.ne-$scope.n0))/$scope.wavelength;
 
 
         };

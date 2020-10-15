@@ -1,85 +1,54 @@
-*{
-  margin: 0;
-  padding:0;
-  font-family: sans-serif;
-}
-.menu ul{
-  display: inline-flex;
-  margin:50px;
-}
-.menu ul li{
-  list-style: none;
-  margin:0 20px;
-  color: black;
-  cursor:pointer;
-}
-.logo img{
-  width: 180px;
-  margin-top: 10px;
-}
-.active{
-  color:#0066ff !important;
-}
-.signup-btn{
-  top:40px;
-  right:80px;
-  position: absolute;
-  text-decoration: none;
-  color:black;
-  border:2px solid transparent;
-  border-radius: 30px;
-  background-image:linear-gradient(#bfbfbf,#bfbfbf),radial-gradient(circle at top left,blue,red);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-}
-.signup-btn span{
-  display: block;
-  padding: 5px 15px;
-}
-.title{
-  display: block;
-  font-size: 30px;
-}
-.title span{
-  font-size: 25px;
-}
-.icons p{
-  width: 200px;
-  margin: 20px 10px 20px 20px;
-}
-.col{
-  margin: auto;
-  text-align: left;
-  width: 800px;
-  color:black;
 
-}
-.coll{
-  margin:auto;
-  width: 1200px;
-  color: black;
-}
-.col h5{
-    font-size: 15px;
-     font-weight: bold;
-}
-.col-xs-5{
-  margin-left: 45px;
-}
+  .logo img{
+    width: 180px;
+    margin-top: 10px;
+    margin-left: -40px;
+  }
+  .title{
+    display: block;
+    font-size: 30px;
+  }
+  .title span{
+    font-size: 25px;
+  }
+  .icons p{
+    width: 200px;
+    margin: 20px 10px 20px 20px;
+  }
+  .col{
+    margin: auto;
+    text-align: left;
+    width: 800px;
+    color:black;
 
-.banner span{
- margin-left: 5px;
- color:#03448c;
-}
-.banner p{
-  margin-left: 5px;
-}
+  }
+  .coll{
+    margin:auto;
+    width: 1200px;
+    color: black;
+  }
+  .col h5{
+      font-size: 15px;
+       font-weight: bold;
+  }
+  .col-xs-5{
+    margin-left: 45px;
+  }
 
-.banner{
-  background-color: #e6e6e6;
-}
-.mapouter{
-  margin-left: 880px;
-  margin-top: -190px;
+  .banner span{
+   margin-left: 5px;
+   font-size:30px;
+   color:black;
+  }
+  .banner p{
+    margin-left: 5px;
+  }
 
-}
+  .banner{
+    background-color: #fff;
+  }
+  .mapouter{
+    margin-left: 880px;
+    margin-top: -190px;
+
+  }
