@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
+  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAlign: "center"});
+  </script>
+
+    <script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+  <title>Optics Calculator</title>
+
+
+
+
+
+
+
+</head>
+  <body ng-app="main">
+
+
+
+    <div class="row" id="Diffraction_limited" ng-controller="control_panel">
+
+
+      <div class="col">
+        <ul  style="list-style-type:none;">
+         <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
+        </ul>
+      <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
+-->
+
+  <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
+  <div class="banner-content">
+    <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Laser dispersion with different materials</h1><br>
+
+  </div>
+  </div>
+
+      </div>
+
+      <div class="col">
+        <div id="info_Diffraction_limited" class="collapse" >
+          <p style="text-align:left;">This Calculator Will Help You To Calculate laser dispersion with different materials</p>
+
+          <h2>$\phi$=$kL$=$\frac{2\pi nL}{\lambda}$</h2>
+          <h2>GD: $\frac{d\phi}{dw}$=$\frac{L}{c}(n-\lambda\frac{dn}{d\lambda})$
+          <h2>GDD: $\frac{d^2\phi}{dw^2}$= $\frac{\lambda^3 L}{2\pi c^2}\frac{d^2n}{d\lambda^2}$
+            <h2>TOD:$\frac{d^3\phi}{dw^3}=\frac{\lambda^4 L}{4\pi^2c^3}(3\frac{d^2n}{d\lambda^2}+\lambda\frac{d^3n}{d\lambda^3})$
+          </div><br>
+
+      <fieldset class="input">
+        <legend><b>Input</b></legend>
+        <div class="row bottom_align_row">
+          <div class="col">
+            <h5>Light Wavelength, $\lambda$:</h5>
+            <div class="input-group">
+              <input  type="number" class="form-control" ng-model="light_wavelength" ng-change="myFunc();">
+              <span class="input-group-addon">nm</span>
+            </div>
+          </div>
+        </div>
+          <div class="row bottom_align_row">
+          <div class="col">
+            <h5>Refractive index, n :</h5>
+          <div class="input-group">
+              <input  type="number" class="form-control" ng-model="refractive" ng-change="myFunc();">
+              <span class="input-group-addon">degrees (°)</span>
+            </div>
+          </div>
+        </div>
+          <div class="row bottom_align_row">
+            <div class="col">
+              <h5>Material thickness, L : <b>d</b>:</h5>
+            <div class="input-group">
+                <input  type="number" class="form-control" ng-model="thickness" ng-change="myFunc();">
+                <span class="input-group-addon">Line/mm</span>
+              </div>
+            </div>
+        </div>
+
+      <br>
+      </fieldset><br><br><br>
+
+        <fieldset class="output">
+          <legend><b>Output</b></legend>
+          <div class="row bottom_align_row">
+
+            <div class="col">
+              <h5>GD :</h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="gd" readonly/>
+                  <span class="input-group-addon">degrees (°)</span>
+              </div>
+            </div>
+          </div>
+            <div class="row bottom_align_row">
+
+              <div class="col">
+                <h5>GDD :</h5>
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="gdd" readonly/>
+                    <span class="input-group-addon">degrees (°)</span>
+                </div>
+              </div>
+          </div>
+
+          <div class="row bottom_align_row">
+              <div class="col">
+
+                <h5>TOD :</h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="tod" readonly/>
+                  <span class="input-group-addon">nm</span>
+              </div>
+            </div><br>
+
+
+      </fieldset><br><br><br><br><br>
+    </div>
+
+
+    <div class ="coll">
+    <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
+    <div class="banner-content">
+        <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
+          <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
+          <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
+    <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
+    <div class="mapouter">
+      <div class="gmap_canvas">
+        <iframe width="300" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        </iframe>
+      </div>
+        <style>.mapouter{position:relative;text-align:right;height:200px;width:300px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:300px;}
+        </style>
+      </div>
+</div>
+</div></div>
+  </body>
+
+
+
+  <script>
+      angular.module('main', [])
+        .controller('control_panel', ['$scope', function($scope) {
+
+          $scope.myFunc = function() {
+  $scope.gd=$scope.thickness/(3*1e8)*($scope.refractive-Math.pow($scope.refractive,($scope.refractive-1)));
+
+
+  $scope.p1=(Math.pow($scope.light_wavelength,3)*$scope.thickness)/(2*Math.PI*Math.pow(3*1e8,2));
+  $scope.p2=
+  $scope.tod=1;
+
+
+          };
+        }]);
+    </script>
+
+
+
+
+
+
+   <!--INPUT-->
+ <style>
+   fieldset {
+     background-color: #e6e6e6;
+   }
+
+ </style>
+
+ <!--OUTPUT-->
+ <style>
+   legend {
+     font-size: 180%;
+     border-radius: 10px 10px 0 0;
+     background-image: linear-gradient(to  bottom  , lightblue,#03448c 90%);
+     background-color: #668cff;
+     color: white;
+     text-align: center;
+   }
+ </style>
+
+
+
+
+</style>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
+  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAlign: "center"});
+</script>
+
+  <script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  <script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+
+</head>
+
+
+<body ng-app="main">
+  <div class="row" id="Diffraction_limited" ng-controller="control_panel">
+
+
+    <div class="col">
+      <ul  style="list-style-type:none;">
+       <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
+      </ul>
+    <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
+  -->
+
+  <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
+  <div class="banner-content">
+  <h1 class="title"><span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Peak Intensity of Gaussian Laser Pulses </h1><br>
+
+  </div>
+  </div>
+    </div>
+
+    <div class="col">
+      <div id="info_Diffraction_limited" class="collapse">
+        <b><p style="text-align:left;">The following are some calculator that will help you calculate the Energy fluence (in Joules per centimetre square) and the Peak Intensity (in Watts per centimetre square)</p>
+      <p style="text-align:left;">by inputting the value of Pulse Energy (in Joules) ,Beam radium at $\frac{1}{e^2}$ intensity (in centimetre) and Pulse duration (in second).</p>
+      <p style="text-align:left;">The formula that will be used are is as followed:<p>
+      <h2 style="text-align:left;"> Peak Intensity = $(\frac{1.88E}{\pi\omega^2\tau})$<h2>
+      <h2 style="text-align:left;"> Energy fluence = $(\frac{2E}{\pi\omega^2})$<h2>
+    </b>
+  </div><br>
+        <fieldset class="input">
+          <legend>Input</legend>
+
+            <div class="col">
+              <h5>Pulse Duration, $T$: </h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="Duration" ng-change="myFunc()" step="1">
+                  <span class="input-group-addon">ns</span>
+              </div>
+            </div>
+            <div class="col">
+              <h5>Repetition rate, $f$: </span></h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="rate" ng-change="myFunc()" step="0.1">
+                  <span class="input-group-addon">MHz</span>
+              </div>
+            </div>
+
+            <div class="col">
+              <h5> Average Power, $P_{ave}$: </h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="power" ng-change="myFunc()">
+                  <span class="input-group-addon">W</span>
+              </div><br>
+            </div>
+            <div class="col">
+              <h5> Spot Diameter: </h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="spot" ng-change="myFunc()">
+                  <span class="input-group-addon">mm</span>
+              </div><br>
+            </div>
+
+        </fieldset><br>
+
+
+
+        <fieldset class="output">
+          <legend>Output</legend>
+
+            <div class="col">
+              <h5> Duty Cycle, $D$:<span class="glyphicon glyphicon-info-sign info-glyph" data-toggle="modal" data-target="#Description_Duty_cycle"></span></h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="cycle" readonly/>
+                  <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <div class="col">
+              <h5> Pusle Energy:<span class="glyphicon glyphicon-info-sign info-glyph" data-toggle="modal" data-target="#Description_pulse_energy"></span></h5>
+              <div class="input-group">
+                  <input  type="number" class="form-control" ng-model="energy" readonly/>
+                  <span class="input-group-addon">μJ</span>
+              </div><br>
+            </div>
+
+
+            <div class="col">
+              <h5> Peak Power$^2$, P$_{peak}$:<span class="glyphicon glyphicon-info-sign info-glyph" data-toggle="modal" data-target="#Description_peak_power"></span></h5>
+              <div class="input-group">
+                  <input  type="number" class="form-control" ng-model="peak" readonly/>
+                  <span class="input-group-addon">W</span>
+              </div>
+            </div>
+            <div class="col">
+              <h5> Pulse separation:<span class="glyphicon glyphicon-info-sign info-glyph" data-toggle="modal" data-target="#Description_Pulse_separation"></span></h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="pulse" readonly/>
+                  <span class="input-group-addon">μs</span>
+              </div><br>
+            </div>
+
+
+            <div class="col">
+              <h5> Average Intensity:<span class="glyphicon glyphicon-info-sign info-glyph" data-toggle="modal" data-target="#Description_average_intensity"></span></h5>
+              <div class="input-group">
+                  <input  type="number" class="form-control" ng-model="average" readonly/>
+                  <span class="input-group-addon">W/cm$^2$</span>
+              </div>
+            </div>
+            <div class="col">
+              <h5> Peak Intensity:<span class="glyphicon glyphicon-info-sign info-glyph" data-toggle="modal" data-target="#Description_peak_intensity"></span></h5>
+              <div class="input-group">
+                  <input  type="number" class="form-control" ng-model="intensity" readonly/>
+                  <span class="input-group-addon">kW/cm$^2$</span>
+              </div><br>
+            </div>
+
+        </fieldset>
+      </div>
+
+
+<!---descriptions Duty Cycle--->
+<div id="Description_Duty_cycle" class="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Duty cycle</h4>
+      </div>
+      <div class="modal-body">
+        <h5>The formula that will be used to find <b>Duty Cycle</b> is as followed:</h5>
+        <h2>$D$ = $T.f$</h2><br>
+        <h5>Duty Cycle, $D$;</h5>
+        <h5>Pulse Duration, $T$; Repetition Rate, $f$;</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---descriptions Pulse Energy--->
+<div id="Description_pulse_energy" class="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pulse Energy</h4>
+      </div>
+      <div class="modal-body">
+        <h5>The formula that will be used to find <b>Pulse Energy</b> is as followed:</h5>
+        <h2>$E_{pulse}$ = $\frac{P_{avg}}{f}$</h2><br>
+        <h5>Pulse Energy, $E_{pulse}$</h5>
+        <h5>Average Power, $P_{ave}$; Repetition Rate, $f$;</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---descriptions Peak Power--->
+<div id="Description_peak_power" class="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Peak Power</h4>
+      </div>
+      <div class="modal-body">
+        <h5>The formula that will be used to find <b>Peak Power</b> is as followed:</h5>
+        <h2>$P_{peak}$ = $\frac{E_{pulse}}{T}$</h2><br>
+        <h5>Peak Power$^2$, P$_{peak}$;</h5>
+        <h5>Pulse Energy, $E_{pulse}$; Pulse Duration, $T$;</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---descriptions Pulse Separation--->
+<div id="Description_Pulse_separation" class="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pulse Separation</h4>
+      </div>
+      <div class="modal-body">
+        <h5>The formula that will be used to find <b>Pulse Separation</b> is as followed:</h5>
+        <h2>$\triangle T$ = $\frac{1}{f}$</h2><br>
+        <h5>Pulse separation, $\triangle T$;</h5>
+        <h5> Repetition Rate, $f$;</h5>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---descriptions Average Intensity--->
+<div id="Description_average_intensity" class="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Average_intensity</h4>
+      </div>
+      <div class="modal-body">
+        <h5>The formula that will be used to find <b>Average Intensity</b> is as followed:</h5>
+        <h2>${Area}$ = $\pi  (\frac{d}{2})^2$</h2>
+        <h2>Intensity$_{avg}$ = $\frac{P_{ave}}{Area}$</h2><br>
+        <h5>Average Intensity, Intensity$_{avg}$; &nbsp;Area;</h5>
+        <h5>Spot Diameter, $d$; Average Power, $P_{ave}$;</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---descriptions Peak Intensity--->
+<div id="Description_peak_intensity" class="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Peak Intensity</h4>
+      </div>
+      <div class="modal-body">
+        <h5>The formula that will be used to find <b>Peak Intensity</b> is as followed:</h5>
+        <h2>${Area}$ = $\pi  (\frac{d}{2})^2$</h2>
+        <h2>Intensity$_{peak}$ = $\frac{P_{peak}}{Area}$</h2><br>
+        <h5>Peak Intensity, Intensity$_{peak}$; &nbsp;Area;</h5>
+        <h5>Spot Diameter, $d$; Peak Power$^2$, P$_{peak}$;</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+            <div class ="coll">
+              <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
+              <div class="banner-content">
+                                <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
+                                  <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
+                                  <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
+                            <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
+                            <div class="mapouter">
+                              <div class="gmap_canvas">
+                                <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                </iframe>
+                              </div>
+                                <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+                                </style>
+                              </div>
+                        </div>
+                        </div></div>
+                          </body>
+
+
+
+
+
+<script>
+  angular.module('main', [])
+    .controller('control_panel', ['$scope', function($scope) {
+
+      $scope.myFunc = function() {
+      $scope.pulse_duration=$scope.Duration*1e-9;
+      $scope.Repetition_rate=$scope.rate*1e6;
+      $scope.cycle=$scope.pulse_duration*$scope.Repetition_rate;
+      $scope.energy = ($scope.power/$scope.Repetition_rate)*1e6;
+      $scope.peak=($scope.power/$scope.Repetition_rate)/$scope.pulse_duration;
+      $scope.pulse=(1/$scope.Repetition_rate)*1e6;
+
+      $scope.spotD=$scope.spot/10;
+      $scope.area=Math.PI*(($scope.spotD/2)*($scope.spotD/2));
+      $scope.intensity=(($scope.peak*1e-3)/$scope.area);
+      $scope.average=($scope.power)/$scope.area;
+
+
+      };
+    }]);
+</script>
+
+
+
+
+
+
+
+<style>
+  fieldset {
+    background-color: #e6e6e6;
+  }
+
+</style>
+
+<!--OUTPUT-->
+<style>
+  legend {
+    font-size: 180%;
+    border-radius: 10px 10px 0 0;
+    background-image: linear-gradient(to  bottom  , lightblue,#03448c 90%);
+    background-color: #668cff;
+    color: white;
+    text-align: center;
+  }
+</style>
+
+
+
+
+</style>

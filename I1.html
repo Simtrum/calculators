@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
+  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAlign: "center"});
+  </script>
+
+    <script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+  <title>Optics Calculator</title>
+
+
+
+
+
+
+
+</head>
+  <body ng-app="main">
+
+
+
+    <div class="row" id="Diffraction_limited" ng-controller="control_panel">
+
+
+      <div class="col">
+        <ul  style="list-style-type:none;">
+         <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
+        </ul>
+      <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
+-->
+
+  <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
+  <div class="banner-content">
+    <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Diffraction-limited Angular Resolution of An Optical System</h1><br>
+
+  </div>
+  </div>
+
+      </div>
+
+      <div class="col">
+        <div id="info_Diffraction_limited" class="collapse" >
+          <p style="text-align:left;">This calculator will help you computes the diffraction-limited angular resolution of an optical system, such as a telescope or the human eye.</p>
+            <b><h2 style="text-align:left;"> $\alpha$=$\frac{1.22\lambda}{D}$ </h2><br></b>
+            <p style="text-align:left;">Wavelength of Light <b>$\lambda$</b>; &nbsp; Aperture of The Optical System <b>$D$</b>;<br> Angular Resolution  <b>$\alpha$</b>; </p>
+      </div><br>
+
+      <fieldset class="input">
+          <legend>Input</legend>
+
+
+            <div class="col">
+              <h5>Wavelength of Light, $\lambda$:</h5>
+              <div class="input-group">
+                  <input  type="number" class="form-control" ng-model="light" ng-change="myFunc()">
+                  <span class="input-group-addon">nm</span>
+              </div>
+            </div>
+              <div class="col">
+                <h5>Aperture of The Optical System, D:</h5>
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="Aperture" ng-change="myFunc()">
+                    <span class="input-group-addon">mm</span>
+                </div><br>
+              </div>
+
+        </fieldset><br>
+
+          <fieldset class="output">
+            <legend>Output</legend>
+
+                <div class="col">
+                  <h5>Angular Resolution, $\alpha$:</h5>
+                  <div class="input-group">
+                      <input type="number" class="form-control" ng-model="Resolution" readonly/>
+                      <span class="input-group-addon">μrad</span>
+                  </div><br>
+                </div>
+
+        </fieldset>        <br><br>
+    </div>
+
+
+    <div class ="coll">
+    <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
+    <div class="banner-content">
+        <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
+          <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
+          <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
+    <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
+    <div class="mapouter">
+      <div class="gmap_canvas">
+        <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        </iframe>
+      </div>
+        <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+        </style>
+      </div>
+</div>
+</div></div>
+  </body>
+
+
+    <script>
+      angular.module('main', [])
+        .controller('control_panel', ['$scope', function($scope) {
+
+
+
+          $scope.myFunc = function() {
+            $scope.wavelength=$scope.light*1e-9;
+            $scope.d=$scope.Aperture*1e-3;
+           $scope.Resolution = ((1.22*$scope.wavelength)/($scope.d))*1e6;
+
+          };
+        }]);
+    </script>
+
+
+  <div id="Description_Focal_Length" class="modal" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Focal Length</h4>
+          </div>
+          <div class="modal-body">
+            <p>The focal length of the lens is the distance between the lens and the image sensor when the subject is in focus</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+   <!--INPUT-->
+ <style>
+   fieldset {
+     background-color: #e6e6e6;
+   }
+
+ </style>
+
+ <!--OUTPUT-->
+ <style>
+   legend {
+     font-size: 180%;
+     border-radius: 10px 10px 0 0;
+     background-image: linear-gradient(to  bottom  , lightblue,#03448c 90%);
+     background-color: #668cff;
+     color: white;
+     text-align: center;
+   }
+ </style>
+
+
+
+
+</style>
+</html>

@@ -16,20 +16,133 @@
 </head>
 <body oncontextmenu="return false">
   <div class="logo">
-  <div class="menu">
         <a href="main.html"><img src="image/Simtrum.jpg"></a>
+        <div class="searchbox">
+          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
+          <ul id="myUL">
+            <li><a href="O1.html">Reflective Index</a></li>
+            <li><a href="O2.html">Lens radius calculator</a></li>
+            <li><a href="O3.html">Laser Beam Spot size</a></li>
+            <li><a href="O4.html">Single convex lens imaging</a></li>
+            <li><a href="O5.html">Two convex lens imaging</a></li>
+            <li><a href="O6.html">Minimum deviation angle of prisms</a></li>
+            <li><a href="O7.html">The beam waist with convex lens</a></li>
+            <li><a href="O8.html">Magnification With A Telescope</a></li>
+            <li><a href="O9.html">Refraction Angle calculation</a></li>
+            <li><a href="O10.html">Displacement distance of light</a></li>
+            <li><a href="O11&12.html">The transmission and reflection coefficients of light</a></li>
+            <li><a href="O13.html">The diffracted angle of Transmission Gratings</a></li>
+            <li><a href="O14.html">The diffracted angle and the Littrow angle of Reflective Gratings</a></li>
+            <li><a href="O15.html">Fringe Period of two light interference</a></li>
+            <li><a href="O16.html">Phase Retardation of Light</a></li>
+            <li><a href="O17.html">The prism pair dispersion compensation</a></li>
+            <li><a href="O18.html">GDD and TOD of grating pair </a></li>
+            <li><a href="O19.html">Laser dispersion with different materials</a></li>
+            <li><a href="O20.html">Calculator of pulse stretching when knows GDD</a></li>
+            <li><a href="O21.html">Calculator of pulse stretching to get GDD</a></li>
+            <li><a href="O22.html">Spatial dispersion for single grating</a></li>
+            <li><a href="L1.html">Gaussian beam propagation-divergence</a></li>
+            <li><a href="L2.html">Decibel-percent convert</a></li>
+            <li><a href="L3.html">Spectral-bandwidth convert</a></li>
+            <li><a href="L4.html">Round trip time calculator</a></li>
+            <li><a href="L5.html">Proprieties of gauss beam</a></li>
+            <li><a href="F1.html">Diffraction-limited angular resolution</a></li>
+            <li><a href="F2.html">PM fiber beat length calculator</a></li>
+            <li><a href="F3.html">Optical fiber V parameter and cutoff calculator</a></li>
+            <li><a href="F4.html">Mode field diameter calculator</a></li>
+            <li><a href="LA1.html">Transform limited pulse width-Gaussian</a></li>
+            <li><a href="LA2.html">Pulse Train Calculator </a></li>
+            <li><a href="LA3.html">Spatial distribution of Gaussian beams</a></li>
+            <li><a href="LA4.html">Peak Intensity of Gaussian Laser Pulses</a></li>
+            <li><a href="LA5.html">Peak Power of Pulses</a></li>
+            <li><a href="LA6.html">Damage threshold conversion</a></li>
+            <li><a href="LA7.html">Pulse width at the FT limit</a></li>
+            <li><a href="LA8.html">Time Bandwidth Product</a></li>
+            <li><a href="LA9.html">Phase Matching for SHG</a></li>
+            <li><a href="LA10.html">Walkoff angle for SHG</a></li>
+            <li><a href="LA11.html">Thermal lens focal length</a></li>
+            <li><a href="I1.html">Angular resolution calculator</a></li>
+            <li><a href="I2.html">Diffraction limit calculator</a></li>
+
+
+          </ul>
     </div>
- </div>
+  </div>
 
     <div class="menu">
         <ul style="list-style-type:none;">
-          <li class="icons"><a href="I-1 Diffraction-Limited Angular Resolution of an optical system.html"><img src="image/I1.png"></a><p>angular resolution calculator</p></li>
-          <li class="icons"><a href="I-2 Diffraction limit size under the Rayleigh and Abbe Criterion.html"><img src="image/I2.png"></a><p>Diffraction limit calculator</p></li>
+          <li class="icons"><a href="I-1 Diffraction-Limited Angular Resolution of an optical system.html"><img src="image/I1-resize.png"></a><p>angular resolution calculator</p></li>
+          <li class="icons"><a href="I-2 Diffraction limit size under the Rayleigh and Abbe Criterion.html"><img src="image/I2-resize.png"></a><p>Diffraction limit calculator</p></li>
+            <li></li>
         </ul>
 
     </div>
 
 
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    #myInput {
+      background-image: url('image/search.jpg');
+      background-repeat: no-repeat;
+      background-size: 15%;
+      width: 85%;
+      font-size: 90%;
+      padding: 2% 5% 2% 20%;
+      border: 1px solid #ddd;
+    }
+
+    #myUL {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 125%;
+      display: none;
+    }
+
+    #myUL li a {
+      border: 1px solid black;
+      margin-top: -1px; /* Prevent double borders */
+      background-color: lightgrey;
+      padding: 5%;
+      text-decoration: none;
+      font-size: 90%;
+      color: black;
+      display: block
+
+    }
+
+    #myUL li a:hover:not(.header) {
+      background-color: #40E0D0;
+    }
+    </style>
+
+    <script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        if(input.value.length == 0){
+         ul.style.display = "none";
+         return;
+     }
+     else{
+         ul.style.display = "block";
+     }
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>
    </body>
 </html>

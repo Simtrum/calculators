@@ -29,7 +29,7 @@
   }
   .coll{
     margin:auto;
-    width: 90%;
+    width: 80%;
     color: black;
   }
   .col h5{
@@ -48,5 +48,5 @@
     background-color: #fff;
   }
   .input-group span{
-    font-size: 55%;
+    font-size: 100%;
   }

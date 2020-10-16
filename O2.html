@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
+  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAlign: "center"});
+  </script>
+
+    <script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+  <title>Optics Calculator</title>
+
+
+
+
+
+
+
+</head>
+  <body ng-app="main_app">
+
+
+
+    <div class="row" id="Diffraction_limited" ng-controller="control_panel">
+
+
+      <div class="col">
+        <ul  style="list-style-type:none;">
+         <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
+        </ul>
+      <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
+-->
+
+  <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
+  <div class="banner-content">
+    <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Lens Radius Calculator</h1><br>
+
+  </div>
+  </div>
+
+      </div>
+
+      <div class="col">
+        <div id="info_Diffraction_limited" class="collapse" >
+          <b><p style="text-align:left;">This calculator will help you calculate the relation between object distance and image distance with two convex lens and magnification.</p></b>
+          <b><p style="text-align:left;">The following is a calculator that helps you calculate the lens radius, by inputting the focal length and reflective index.</p>
+            <p style="text-align:left;">The formula that will be used is as followed:</p>
+            <h2 style="text-align:left;">${R}= {f}({n-1})$</h2>
+                </b></div><br>
+
+      <fieldset class="input">
+        <legend><b>Input</b></legend>
+        <div class="row bottom_align_row">
+          <div class="col">
+            Please Select your material type here...<br>
+                    <div class="input-group">
+                        <select id="materialsSelect" ng-model="materialsSelect" name="materialsSelect" ng-change="myFunc();" >
+                            <option  name="BK7" value="BK7" >BK7, BK7 Crown Glass</option>
+                            <option  name="fused_silica" value="fused_silica">fused-silica, Fused quartz/silica (FS)</option>
+                            <option  name="CaF2" value="CaF2">CaF2, Calcium fluoride</option>
+                            <option  name="MgF2" value="MgF2e">MgF2, Magnesium fluoride, Extraordinary</option>
+                            <option  name="MgF2" value="MgF2o">MgF2, Magnesium fluoride,Ordinary</option>
+                            <option  name="Ge" value="Ge">Ge, Germanium</option>
+                            <option  name="Si" value="Si">Si, Silicon</option>
+                        </select>
+            </div>
+          </div>
+        </div>
+          <div class="row bottom_align_row">
+          <div class="col">
+            <h5>Wavelength,  λ :</h5>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="入" ng-model="WAVE" ng-change="myFunc()">
+                            <span class="input-group-addon">nm</span>
+            </div>
+          </div>
+        </div>
+        <div class="row bottom_align_row">
+        <div class="col">
+          <h5>Focal Length, $f$ : <span class="glyphicon glyphicon-info-sign info-glyph" data-toggle="modal" data-target="#Description_Focal_Length"></span></h5>
+                      <div class="input-group">
+                          <input onchange="myFunction();" type="number" class="form-control" id="F" ng-model="length" ng-change="myFunc()">
+                          <span class="input-group-addon">mm</span>
+          </div>
+        </div>
+      </div>
+
+
+      <br>
+      </fieldset><br><br><br>
+
+        <fieldset class="output">
+          <legend><b>Output</b></legend>
+          <div class="row bottom_align_row">
+            <div class="col">
+              <h5>Reflective Index, n: </h5>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="N" ng-model="index" readonly/>
+                            <span class="input-group-addon"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row bottom_align_row">
+
+            <div class="col">
+              <h5>Lens Radius, R: </h5>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="R" ng-model="radius" readonly/>
+                                <span class="input-group-addon">mm</span>
+              </div>
+            </div>
+          </div>
+                  <br>
+
+
+      </fieldset><br><br>
+    </div>
+
+
+    <div class ="coll">
+    <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
+    <div class="banner-content">
+        <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
+          <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
+          <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
+    <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
+    <div class="mapouter">
+      <div class="gmap_canvas">
+        <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        </iframe>
+      </div>
+        <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+        </style>
+      </div>
+</div>
+</div></div>
+  </body>
+
+
+
+  <script>
+
+      angular.module('main_app', [])
+        .controller('control_panel', ['$scope', function($scope) {
+          $scope.myFunc = function() {
+
+              $scope.wavelength=Math.pow($scope.WAVE*1e-3,2);
+    if($scope.materialsSelect=="BK7"){$scope.material = (1.03961212*$scope.wavelength)/($scope.wavelength-0.0060006986)+(0.231792344*$scope.wavelength)/($scope.wavelength-0.0200179144) + (1.01046945*$scope.wavelength)/($scope.wavelength-103.560653) + 1;}
+    if($scope.materialsSelect=="fused_silica"){$scope.material = (0.6961663*$scope.wavelength)/($scope.wavelength-(0.0684043*0.0684043))+(0.4079426*$scope.wavelength)/($scope.wavelength-(0.1162414*0.1162414)) + (0.8974794*$scope.wavelength)/($scope.wavelength-(9.896161*9.896161)) + 1;}
+    if($scope.materialsSelect=="CaF2"){$scope.material = (0.618814*$scope.wavelength)/($scope.wavelength-0.002759866)+(0.4198937*$scope.wavelength)/($scope.wavelength-0.01061251) + (3.426299*$scope.wavelength)/($scope.wavelength-1068.123) + 1;}
+    if($scope.materialsSelect=="MgF2e"){$scope.material = (0.41344023*$scope.wavelength)/($scope.wavelength-(0.03684262*0.03684262))+(0.50497499*$scope.wavelength)/($scope.wavelength-(0.09076162*0.09076162)) + (2.4904862*$scope.wavelength)/($scope.wavelength-(23.771995*23.771995)) + 1;}
+    if($scope.materialsSelect=="MgF2o"){$scope.material = (0.48755108*$scope.wavelength)/($scope.wavelength-(0.04338408*0.04338408))+(0.39875031*$scope.wavelength)/($scope.wavelength-(0.09461442*0.09461442)) + (2.3120353*$scope.wavelength)/($scope.wavelength-(23.793604)) + 1;}
+    if($scope.materialsSelect=="Ge"){$scope.material = 8.28156 +(6.7288*$scope.wavelength)/($scope.wavelength-0.44105) + (0.21307*$scope.wavelength)/($scope.wavelength-3870.1) + 1;}
+    if($scope.materialsSelect=="Si"){$scope.material = (10.6684293*$scope.wavelength)/($scope.wavelength-(0.301516485*0.301516485)) +(0.0030434748*$scope.wavelength)/($scope.wavelength-(1.13475115*1.13475115)) + (1.54133408*$scope.wavelength)/($scope.wavelength-(1104*1104)) + 1;}
+       $scope.index=Math.sqrt($scope.material);
+       $scope.radius=$scope.length*($scope.index-1);
+              };}]);
+
+
+  </script>
+
+
+  <div id="Description_Focal_Length" class="modal" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Focal Length</h4>
+          </div>
+          <div class="modal-body">
+            <p>The focal length of the lens is the distance between the lens and the image sensor when the subject is in focus</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+   <!--INPUT-->
+ <style>
+   fieldset {
+     background-color: #e6e6e6;
+   }
+
+ </style>
+
+ <!--OUTPUT-->
+ <style>
+   legend {
+     font-size: 180%;
+     border-radius: 10px 10px 0 0;
+     background-image: linear-gradient(to  bottom  , lightblue,#03448c 90%);
+     background-color: #668cff;
+     color: white;
+     text-align: center;
+   }
+ </style>
+
+
+
+
+</style>
+</html>

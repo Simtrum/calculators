@@ -27,13 +27,13 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
   <body ng-app="main">
 
 
+          <div class="col">
     <div class="row" id="Diffraction_limited" ng-controller="control_panel">
       <ul  style="list-style-type:none;">
        <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
       </ul>
       <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-info-sign info-glyph"></span></small></h1>
 
-      <div class="col">
 
       </div>
 
@@ -149,14 +149,18 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
    <!--INPUT-->
  <style>
-   fieldset.input {
-     background-color: #cccccc;
+   fieldset.input{
+     background-color: white;
+     outline: 1px solid black;
+      outline-offset: -1px;
+      border:1px;
+
+
    }
 
    legend {
      background-color: gray;
      color: white;
-     padding: 4px 10px;
    }
  </style>
 
@@ -164,13 +168,14 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
  <style>
    fieldset.output {
      background-color: #cccccc;
+
+     background-image: linear-gradient(to  bottom,  #17fcc6 , #03448c);
    }
 
    legend {
      background-color: gray;
      color: white;
      text-align: center;
-     padding: 4px 10px;
    }
  </style>
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Creating Search Bar using HTML
+		CSS and Javascript
+	</title>
+
+	<!-- linking the stylesheet(CSS) -->
+	<link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+
+	<!-- input tag -->
+	<input id="searchbar" type="text" name="search" placeholder="Search animals..">
+    <button type="submit" action="search_animal()" class="searchButton" id="searchbut"><i class="fa fa-search"></i></button>
+
+	<!-- ordered list -->
+	<ul id='list' style="list-style-type:none;">
+		<li class="animals">Cat</li>
+		<li class="animals">Dog</li>
+		<li class="animals">Elephant</li>
+		<li class="animals">Fish</li>
+		<li class="animals">Gorilla</li>
+		<li class="animals">Monkey</li>
+		<li class="animals">Turtle</li>
+		<li class="animals">Whale</li>
+		<li class="animals">Aligator</li>
+		<li class="animals">Donkey</li>
+		<li class="animals">Horse</li>
+	</ul>
+
+	<!-- linking javscript -->
+	<script src="search.js"></script>
+</body>
+
+</html>
