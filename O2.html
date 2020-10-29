@@ -58,15 +58,16 @@
           <b><p style="text-align:left;">The following is a calculator that helps you calculate the lens radius, by inputting the focal length and reflective index.</p>
             <p style="text-align:left;">The formula that will be used is as followed:</p>
             <h2 style="text-align:left;">${R}= {f}({n-1})$</h2>
+            <img src="http://simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O2.png" >
                 </b></div><br>
 
       <fieldset class="input">
         <legend><b>Input</b></legend>
         <div class="row bottom_align_row">
           <div class="col">
-            Please Select your material type here...<br>
-                    <div class="input-group">
-                        <select id="materialsSelect" ng-model="materialsSelect" name="materialsSelect" ng-change="myFunc();" >
+            <h5>Please Select your material type here</h5>
+                        <select id="materialsSelect" class="form-control" ng-model="materialsSelect" name="materialsSelect" ng-change="myFunc();" >
+
                             <option  name="BK7" value="BK7" >BK7, BK7 Crown Glass</option>
                             <option  name="fused_silica" value="fused_silica">fused-silica, Fused quartz/silica (FS)</option>
                             <option  name="CaF2" value="CaF2">CaF2, Calcium fluoride</option>
@@ -75,7 +76,6 @@
                             <option  name="Ge" value="Ge">Ge, Germanium</option>
                             <option  name="Si" value="Si">Si, Silicon</option>
                         </select>
-            </div>
           </div>
         </div>
           <div class="row bottom_align_row">
@@ -83,7 +83,7 @@
             <h5>Wavelength,  λ :</h5>
                         <div class="input-group">
                             <input type="number" class="form-control" id="入" ng-model="WAVE" ng-change="myFunc()">
-                            <span class="input-group-addon">nm</span>
+                            <span class="input-group-addon">mm</span>
             </div>
           </div>
         </div>
@@ -106,10 +106,7 @@
           <div class="row bottom_align_row">
             <div class="col">
               <h5>Reflective Index, n: </h5>
-                        <div class="input-group">
                             <input type="number" class="form-control" id="N" ng-model="index" readonly/>
-                            <span class="input-group-addon"></span>
-              </div>
             </div>
           </div>
           <div class="row bottom_align_row">
@@ -138,10 +135,10 @@
     <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
     <div class="mapouter">
       <div class="gmap_canvas">
-        <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
       </div>
-        <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+        <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
         </style>
       </div>
 </div>

@@ -3,6 +3,7 @@
     width: 180px;
     margin-top: 10px;
     margin-left: -40px;
+
   }
   .title{
     display: block;
@@ -47,3 +48,17 @@
   .banner{
     background-color: #fff;
   }
+.graphx{
+  width: 100%;
+}
+.collapse img{
+    max-width: 100%;
+}
+#gmap_canvas{
+  width:100%;
+  height:150%;
+}
+legend{
+  font-size: 180%;
+  font-weight: bold;
+}

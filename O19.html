@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
-  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+      <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
+    <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
+    <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
+    <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -68,7 +68,7 @@
           <div class="col">
             <h5>Light Wavelength, $\lambda$:</h5>
             <div class="input-group">
-              <input  type="number" class="form-control" ng-model="light_wavelength" ng-change="myFunc();">
+              <input  type="number" id="wavelength" class="form-control" onkeyup="do1();">
               <span class="input-group-addon">nm</span>
             </div>
           </div>
@@ -76,21 +76,30 @@
           <div class="row bottom_align_row">
           <div class="col">
             <h5>Refractive index, n :</h5>
-          <div class="input-group">
-              <input  type="number" class="form-control" ng-model="refractive" ng-change="myFunc();">
-              <span class="input-group-addon">degrees (°)</span>
+            <div class="input-group">
+
+            <select id="cryindex1" length=4  class="form-control" onchange="do1();" >
+          <option value="1" title="空气">Air</option>
+          <option value="2">BK7</option>
+          <option value="3">CaF2</option>
+          <option value="4" title="熔石英">FS</option>
+          <option value="5" title="掺钛蓝宝石">Ti:S</option>
+        </select>
+              <span class="input-group-addon"></span>
             </div>
           </div>
         </div>
           <div class="row bottom_align_row">
             <div class="col">
-              <h5>Material thickness, L : <b>d</b>:</h5>
+              <h5>Material thickness, L:</h5>
             <div class="input-group">
-                <input  type="number" class="form-control" ng-model="thickness" ng-change="myFunc();">
-                <span class="input-group-addon">Line/mm</span>
+              <input  type="number" id="L" class="form-control" onkeyup="do1();" >
+                <span class="input-group-addon">mm</span>
               </div>
             </div>
         </div>
+
+			<br>
 
       <br>
       </fieldset><br><br><br>
@@ -98,38 +107,40 @@
         <fieldset class="output">
           <legend><b>Output</b></legend>
           <div class="row bottom_align_row">
-
             <div class="col">
               <h5>GD :</h5>
               <div class="input-group">
-                  <input type="number" class="form-control" ng-model="gd" readonly/>
-                  <span class="input-group-addon">degrees (°)</span>
+                  <input type="number" id="dispblock1"class="form-control" readonly/>
+                  <span class="input-group-addon">$fs$</span>
               </div>
             </div>
-          </div>
-            <div class="row bottom_align_row">
-
-              <div class="col">
-                <h5>GDD :</h5>
-                <div class="input-group">
-                    <input type="number" class="form-control" ng-model="gdd" readonly/>
-                    <span class="input-group-addon">degrees (°)</span>
-                </div>
-              </div>
-          </div>
+        </div>
 
           <div class="row bottom_align_row">
-              <div class="col">
-
-                <h5>TOD :</h5>
+            <div class="col">
+              <h5>GDD :</h5>
               <div class="input-group">
-                  <input type="number" class="form-control" ng-model="tod" readonly/>
-                  <span class="input-group-addon">nm</span>
+                  <input type="number" id="dispblock2" class="form-control" readonly/>
+                  <span class="input-group-addon">$fs^2$</span>
               </div>
-            </div><br>
+
+            </div>
+        </div>
+
+        <div class="row bottom_align_row">
+          <div class="col">
+            <h5>TOD :</h5>
+            <div class="input-group" >
+                <input type="number"id="dispblock3" class="form-control" readonly/>
+                <span class="input-group-addon">$fs^3$</span>
+        </div>
+          </div>
+      </div>
+<br><br>
+
+      </fieldset><br><br><br>
 
 
-      </fieldset><br><br><br><br><br>
     </div>
 
 
@@ -142,10 +153,10 @@
     <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
     <div class="mapouter">
       <div class="gmap_canvas">
-        <iframe width="300" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
       </div>
-        <style>.mapouter{position:relative;text-align:right;height:200px;width:300px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:300px;}
+      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
         </style>
       </div>
 </div>
@@ -155,20 +166,195 @@
 
 
   <script>
-      angular.module('main', [])
-        .controller('control_panel', ['$scope', function($scope) {
 
-          $scope.myFunc = function() {
-  $scope.gd=$scope.thickness/(3*1e8)*($scope.refractive-Math.pow($scope.refractive,($scope.refractive-1)));
+    function do1()
+    {
+    	var w=document.getElementById("wavelength");
+    	var L=document.getElementById("L");
+    	var wave=w.value/1000;
+    	var ml=L.value/1000;
+    	var disp1=document.getElementById("dispblock1");
+    	var disp2=document.getElementById("dispblock2");
+    	var disp3=document.getElementById("dispblock3");
+    	switch(cryindex1.value)
+    	{
+    	case "1":
+    		{
+    			var n=nAir(wave);
+    			break;
+    		}
+    	case "2":
+    		{
+    			var n=nBK7(wave);
+    			break;
+    		}
+    	case "3":
+    		{
+    			var n=nCaF2(wave);
+    			break;
+    		}
+    	case "4":
+    		{
+    			var n=nFS(wave);
+    			break;
+    		}
+    	case "5":
+    		{
+    			var n=nTis(wave);
+    			break;
+    		}
+    	default:
+    		;
+    	}
+    	var phase=fMDisp(n,wave*Math.pow(10,-6),ml);
+    	disp1.value=phase[1].toFixed(3);
+    	disp2.value=phase[2].toFixed(3);
+    	disp3.value=phase[3].toFixed(3);
 
 
-  $scope.p1=(Math.pow($scope.light_wavelength,3)*$scope.thickness)/(2*Math.PI*Math.pow(3*1e8,2));
-  $scope.p2=
-  $scope.tod=1;
+
+    }
 
 
-          };
-        }]);
+  function nAir(wave)
+  {
+  	var a1,b1,a2,b2;
+  	var n=[];
+  	a1=2480990/132.274;
+  	b1=1/132.274;
+  	a2=17455.7/39.32957;
+  	b2=1/39.32957;
+  	var f1=getadb(a1*wave*wave,2*a1*wave,2*a1,0,wave*wave-b1,2*wave,2,0);
+  	var f2=getadb(a2*wave*wave,2*a2*wave,2*a2,0,wave*wave-b2,2*wave,2,0);
+
+  	for(i=0;i<4;i++)
+  		n[i]=(f1[i]+f2[i])*Math.pow(10,-8);
+
+  	n[0]+=1+8060.51*Math.pow(10,-8);
+  	n[1]*=Math.pow(10,6);
+  	n[2]*=Math.pow(10,12);
+  	n[3]*=Math.pow(10,18);
+  	return n;
+  }
+  function nBK7(wave)
+  {
+  	var a1,b1,a2,b2,a3,b3;
+  	var fm=[];
+  	a1=1.03961212;
+  	b1=0.0060006986;
+  	a2=0.231792344;
+  	b2=0.0200179144;
+  	a3=1.01046945;
+  	b3=103.560653;
+  	var f1=getadb(a1*wave*wave,2*a1*wave,2*a1,0,wave*wave-b1,2*wave,2,0);
+  	var f2=getadb(a2*wave*wave,2*a2*wave,2*a2,0,wave*wave-b2,2*wave,2,0);
+  	var f3=getadb(a3*wave*wave,2*a3*wave,2*a3,0,wave*wave-b3,2*wave,2,0);
+  	for(i=0;i<4;i++)
+  		fm[i]=f1[i]+f2[i]+f3[i];
+  	fm[0]+=1;
+  	var n=getxm(fm,0.5);
+  	n[1]*=Math.pow(10,6);
+  	n[2]*=Math.pow(10,12);
+  	n[3]*=Math.pow(10,18);
+  	return n;
+  }
+  function nCaF2(wave)
+  {
+  	var a1,b1,a2,b2,a3,b3;
+  	var fm=[];
+  	a1=0.618814;
+  	b1=0.002759866;
+  	a2=0.4198937;
+  	b2=0.01061251;
+  	a3=3.426299;
+  	b3=1068.123;
+  	var f1=getadb(a1*wave*wave,2*a1*wave,2*a1,0,wave*wave-b1,2*wave,2,0);
+  	var f2=getadb(a2*wave*wave,2*a2*wave,2*a2,0,wave*wave-b2,2*wave,2,0);
+  	var f3=getadb(a3*wave*wave,2*a3*wave,2*a3,0,wave*wave-b3,2*wave,2,0);
+  	for(i=0;i<4;i++)
+  		fm[i]=f1[i]+f2[i]+f3[i];
+  	fm[0]+=1;
+  	var n=getxm(fm,0.5);
+  	n[1]*=Math.pow(10,6);
+  	n[2]*=Math.pow(10,12);
+  	n[3]*=Math.pow(10,18);
+  	return n;
+  }
+  function nFS(wave)
+  {
+  	var a1,b1,a2,b2,a3,b3;
+  	var fm=[];
+  	a1=0.6961663;
+  	b1=Math.pow(0.0684043,2);
+  	a2=0.4079426;
+  	b2=Math.pow(0.1162414,2);
+  	a3=0.8974794;
+  	b3=Math.pow(9.896161,2);
+  	var f1=getadb(a1*wave*wave,2*a1*wave,2*a1,0,wave*wave-b1,2*wave,2,0);
+  	var f2=getadb(a2*wave*wave,2*a2*wave,2*a2,0,wave*wave-b2,2*wave,2,0);
+  	var f3=getadb(a3*wave*wave,2*a3*wave,2*a3,0,wave*wave-b3,2*wave,2,0);
+  	for(i=0;i<4;i++)
+  		fm[i]=f1[i]+f2[i]+f3[i];
+  	fm[0]+=1;
+  	var n=getxm(fm,0.5);
+  	n[1]*=Math.pow(10,6);
+  	n[2]*=Math.pow(10,12);
+  	n[3]*=Math.pow(10,18);
+  	return n;
+  }
+  function nTis(wave)
+  {
+  	var a1,b1,a2,b2,a3,b3;
+  	var fm=[];
+  	a1=1.4313493;
+  	b1=Math.pow(0.0726631,2);
+  	a2=0.65054713;
+  	b2=Math.pow(0.1193242,2);
+  	a3=5.3414021;
+  	b3=Math.pow(18.028251,2);
+  	var f1=getadb(a1*wave*wave,2*a1*wave,2*a1,0,wave*wave-b1,2*wave,2,0);
+  	var f2=getadb(a2*wave*wave,2*a2*wave,2*a2,0,wave*wave-b2,2*wave,2,0);
+  	var f3=getadb(a3*wave*wave,2*a3*wave,2*a3,0,wave*wave-b3,2*wave,2,0);
+  	for(i=0;i<4;i++)
+  		fm[i]=f1[i]+f2[i]+f3[i];
+  	fm[0]+=1;
+  	var n=getxm(fm,0.5);
+  	n[1]*=Math.pow(10,6);
+  	n[2]*=Math.pow(10,12);
+  	n[3]*=Math.pow(10,18);
+  	return n;
+  }
+
+
+  function getadb(a0,a1,a2,a3,b0,b1,b2,b3)
+  {
+  	var adb=new Array();
+  	adb[0]=a0/b0;
+  	adb[1]=a1/b0-1/b0/b0*a0*b1;
+  	adb[2]=a2/b0-2/b0/b0*a1*b1+2/b0/b0/b0*a0*b1*b1-1/b0/b0*a0*b2;
+  	adb[3]=a3/b0-b3*a0/b0/b0-3*a2*b1/b0/b0-3*b2*a1/b0/b0+6*b1*b1*a1*Math.pow(b0,-3)-6*Math.pow(b1,3)*a0*Math.pow(b0,-4)+6*b2*b1*a0*Math.pow(b0,-3);
+  	return adb;
+  }
+function fMDisp(n,w,L)
+{
+	var c=299792458;
+	var phase=[];
+	phase[0]=2*Math.PI/w*n[0]*L;
+	phase[1]=L/c*(n[0]-w*n[1])*Math.pow(10,15);
+	phase[2]=L*Math.pow(w,3)/2/Math.PI/c/c*n[2]*Math.pow(10,30);
+	phase[3]=-Math.pow(w,4)*L/4/Math.PI/Math.PI/c/c/c*(3*n[2]+w*n[3])*Math.pow(10,45);
+	return phase;
+}
+  function getxm(x,m)
+  {
+  	var xm=new Array();
+  	xm[0]=Math.pow(x[0],m);
+  	xm[1]=m*Math.pow(x[0],m-1)*x[1];
+  	xm[2]=m*(m-1)*Math.pow(x[0],m-2)*x[1]*x[1]+m*Math.pow(x[0],m-1)*x[2];
+  	xm[3]=m*(m-1)*(m-2)*Math.pow(x[0],m-3)*Math.pow(x[1],3)+3*m*(m-1)*Math.pow(x[0],m-2)*x[1]*x[2]+m*Math.pow(x[0],m-1)*x[3];
+  	return xm;
+
+}
     </script>
 
 
@@ -187,7 +373,7 @@
  <!--OUTPUT-->
  <style>
    legend {
-     font-size: 180%;
+     font-size: 100%;
      border-radius: 10px 10px 0 0;
      background-image: linear-gradient(to  bottom  , lightblue,#03448c 90%);
      background-color: #668cff;

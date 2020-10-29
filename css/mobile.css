@@ -50,3 +50,17 @@
   .input-group span{
     font-size: 100%;
   }
+  .collapse img{
+    width:300px;
+  }
+  .banner-content p{
+  font-size:85%;
+  }
+#gmap_canvas{
+  width:100%;
+  height:150%;
+}
+legend{
+  font-size: 180%;
+  font-weight: bold;
+}

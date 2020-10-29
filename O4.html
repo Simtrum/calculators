@@ -54,13 +54,12 @@
 
       <div class="col">
         <div id="info_Diffraction_limited" class="collapse" >
-          <b><p style="text-align:center;">This calculator will help you calculate the Relationship between object distance and <br>image distance with one convex lens and magnification. </p></b>
-            <img src="https://www.simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O-4.png" width="100%">
-            <p style="text-align:center;" ><br> </p>
-              <p style="text-align:center;" >The formula that will be used is as followed:<br> </p>
-              <h2 style="text-align:center;"> $M$=$\frac{V}{U}$  &nbsp;&nbsp;&nbsp;&nbsp; $\frac{1}{U}$+$\frac{1}{V}$=$\frac{1}{f}$</h2><br>
-              <p style="text-align:center;">Object Distance <b>U</b>; Focal Length <b>f</b>;</p>
-              <p style="text-align:center;">Image Distance <b>V</b>; Magnification <b>M</b></p>
+          <b><p style="text-align:left;">This calculator will help you calculate the Relationship between object distance and <br>image distance with one convex lens and magnification. </p></b>
+            <img src="https://www.simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O-4.png">
+            <p style="text-align:left;" ><br> </p>
+              <p style="text-align:left;" >The formula that will be used is as followed:<br> </p>
+              <h2 style="text-align:left;"> $M$=$\frac{V}{U}$  &nbsp;&nbsp;&nbsp;&nbsp; $\frac{1}{U}$+$\frac{1}{V}$=$\frac{1}{f}$</h2><br>
+              <p style="text-align:left;">Object Distance <b>U</b>; Focal Length <b>f</b>Image Distance <b>V</b>; Magnification <b>M</b></p>
             </b>    </div><br>
 
       <fieldset class="input">
@@ -70,7 +69,7 @@
             <h5>Object Distance, <b>U</b>:</h5>
           <div class="input-group">
               <input type="number" class="form-control" ng-model="Odistance" ng-change="myFunc()">
-              <span class="input-group-addon">m</span>
+              <span class="input-group-addon">mm</span>
             </div>
           </div>
         </div>
@@ -79,7 +78,7 @@
             <h5> Focal Length, <b>f</b>: </span></h5>
           <div class="input-group">
               <input type="number" class="form-control" ng-model="length" ng-change="myFunc()">
-              <span class="input-group-addon">m</span>
+              <span class="input-group-addon">mm</span>
             </div>
           </div>
         </div>
@@ -107,22 +106,16 @@
 
             <div class="col">
               <h5>Magnification, <b>M</b>:</h5>
-                    <div class="input-group">
                         <input class="form-control" ng-model="magnification" readonly/>
-                        <span class="input-group-addon"></span>
-              </div>
             </div>
           </div>
           <div class="row bottom_align_row">
 
             <div class="col">
               <h5>Type of image:</h5>
-                    <div class="input-group">
                         <input class="form-control" ng-model="image" readonly/>
               </div>
-            </div>
-          </div>
-          <br>
+            </div><br>
 
 
       </fieldset><br><br><br><br><br>
@@ -138,10 +131,10 @@
     <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
     <div class="mapouter">
       <div class="gmap_canvas">
-        <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
       </div>
-        <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
         </style>
       </div>
 </div>

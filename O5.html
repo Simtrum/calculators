@@ -45,7 +45,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
       <div id="info_Diffraction_limited" class="collapse">
         <b><p style="text-align:left;">This calculator will help you calculate the relation between object distance and image distance with two convex lens and magnification.</p></b>
           <p style="text-align:left;">The formula that will be used is as followed:</p>
-          <img src="https://www.simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O-5.png" width="100%" >
+          <img src="https://www.simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O-5.png"  >
           <h3 style="text-align:left;">$V_1$=$\frac{u_1 * f_o}{u_1-f_o}$ &nbsp;&nbsp;&nbsp;&nbsp; $M_1$=$\frac{f_o}{u_1-f_0}$</h3><br>
           <p style="text-align:left;">   For L$\lt V_1$,</p>
           <h3 style="text-align:left;">$U_2$=$V_1-L$ &nbsp;&nbsp;&nbsp;&nbsp; $M_2$=$\frac{f_e}{f_e+U_2}$</h3>
@@ -111,11 +111,8 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
                     </div>
                     <div class="col">
                       <h5>Total Magnification, <b>M</b>:</h5>
-                      <div class="input-group">
                           <input class="form-control" ng-model="magnification" readonly/>
-                          <span class="input-group-addon"></span>
-                      </div><br>
-                    </div>
+                    </div><br>
             </fieldset>
           </div><div class ="coll">
           <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
@@ -126,10 +123,10 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
           <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
           <div class="mapouter">
             <div class="gmap_canvas">
-              <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+              <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
               </iframe>
             </div>
-              <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+            <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
               </style>
             </div>
         </div>

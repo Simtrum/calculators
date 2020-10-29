@@ -45,6 +45,8 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
       <div class="col">
         <div id="info_Diffraction_limited" class="collapse" >
           <p style="text-align:left;">This calcaulator will help you computes the radiance of a laser beam propagating in a multi-mode or double-clad optical fiber</p>
+          <img src="http://simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/F1.png">
+
             <b><h2 style="text-align:left;"> $\theta$ = arcsin(NA) </h2></b>
             <b><h2 style="text-align:left;"> $\Omega$ = $\pi$NA$^2$ &nbsp;&nbsp; $\Omega$ = 2$\pi$(1-cos$\theta$)</h2></b>
             <b><h2 style="text-align:left;"> A = $\pi\frac{D^2}{4}$  &nbsp;&nbsp;&nbsp;&nbsp; R = $\frac{P}{A\Omega}$</h2></b>
@@ -73,10 +75,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
           <div class="row bottom_align_row">
             <div class="col">
               <h5>Fiber Numerical Aperture:</h5>
-              <div class="input-group">
                   <input type="number" class="form-control" ng-model="NA" ng-change="myFunc()">
-                  <span class="input-group-addon"></span>
-              </div><br>
             </div><br>
         </div>
       </fieldset><br>
@@ -129,11 +128,11 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
     <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
     <div class="mapouter">
       <div class="gmap_canvas">
-        <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
       </div>
-        <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
-        </style>
+      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
+</style>
       </div>
 </div>
 </div></div>
@@ -176,7 +175,6 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
   <!--OUTPUT-->
   <style>
     legend {
-      font-size: 180%;
       border-radius: 10px 10px 0 0;
       background-image: linear-gradient(to  bottom  , lightblue,#03448c 90%);
       background-color: #668cff;

@@ -48,9 +48,9 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
           <div class="col">
             <div id="info_Diffraction_limited" class="collapse" >
               <p style="text-align:left;">This Calculator Will Help You Computes The Polarization-maintianing (PM) Optical Fiber. You will only need to enter $\triangle n$ and wavelength or $\triangle \beta$ and wavelength</p>
-            <b><h2 style="text-align:left;"> $\triangle\beta$=$\frac{2 \pi}{\lambda}\triangle n$ &nbsp;&nbsp;&nbsp;&nbsp; $\triangle n$=$\frac{\lambda}{2 \pi}\triangle \beta$</h2><br></b>
-            <b><h2 style="text-align:left;"> $L_b$=$\frac{\lambda}{\triangle n}$</h2><br></b>
-            <p style="text-align:left;">Index Difference <b>$\triangle n$</b>; The Propagation Constant difference between the polarization modes <b>$\triangle \beta$</b>; Wavelength <b>$\lambda$</b>;<br> Beat Length <b>L$_b$</p>
+              <img src="http://simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/f2.png">
+            <b><h2 style="text-align:left;"> $\triangle\beta$=$\frac{2 \pi}{\lambda}\triangle n$ &nbsp;&nbsp;&nbsp;&nbsp; $\triangle n$=$\frac{\lambda}{2 \pi}\triangle \beta$ &nbsp;&nbsp;&nbsp;&nbsp; $L_b$=$\frac{\lambda}{\triangle n}$</h2><br></b>
+            <p style="text-align:left;">Index Difference <b>$\triangle n$</b>; The Propagation Constant difference between the polarization modes <b>$\triangle \beta$</b>; Wavelength <b>$\lambda$</b>; Beat Length <b>L$_b$</p>
       </div><br>
 
       <fieldset class="input">
@@ -59,10 +59,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
           <div class="col">
             <h5>Index Difference, $\triangle n$: </h5>
-            <div class="input-group">
               <input  type="number" class="form-control" ng-model="index" ng-change="N()">
-                <span class="input-group-addon"></span>
-            </div>
           </div>
 
 
@@ -118,10 +115,10 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
     <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
     <div class="mapouter">
       <div class="gmap_canvas">
-        <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
       </div>
-        <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
         </style>
       </div>
 </div>

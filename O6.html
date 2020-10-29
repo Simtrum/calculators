@@ -43,7 +43,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
       <div class="col">
         <div id="info_Diffraction_limited" class="collapse">
           <p style="text-align:left;">This calculator will help you calcaulate the minimum deviation angle of (triangular) prisms with a certain wavelength.</p>
-            <img src="https://www.simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O-6.png" width="100%">
+            <img src="https://www.simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O-6.png">
             <b><h2 style="text-align:left;"> $n$ = $\frac{sin\frac{A+\theta}{2}}{sin\frac{A}{2}}$ </h2><br></b>
             <p style="text-align:left;">Top Angle of The Prism <b>$A$</b>; Reflective Index <b>n</b>;<br> Minimum Deviation Angle <b>$\theta$</b></p><br><br><br>
 
@@ -55,18 +55,20 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
       <fieldset class="input">
         <legend>Input</legend>
         <div class="col">
-          <h5>Please select your material here...</h5>
-          <select id="materialsSelect" ng-model="materialsSelect" ng-change="myFunc()">
+                      <h5>Select material: </h5>
+                      <select id="materialsSelect" class="form-control" ng-model="materialsSelect" ng-change="myFunc()">
 
-            <option  name="BK7" value="BK7" >BK7, BK7 Crown Glass</option>
-            <option  name="fused_silica" value="FS">fused-silica, Fused quartz/silica (FS)</option>
-            <option  name="CaF2" value="CaF2">CaF2, Calcium fluoride</option>
-            <option  name="MgF2" value="MgF2E">MgF2, Magnesium fluoride, Extraordinary</option>
-            <option  name="MgF2" value="MgF2O">MgF2, Magnesium fluoride, Ordinary</option>
-            <option  name="Ge" value="GE">Ge, Germanium</option>
-            <option  name="Si" value="SI">Si, Silicon</option>
-          </select>
-        </div>
+                        <option  name="BK7" value="BK7" >BK7, BK7 Crown Glass</option>
+                        <option  name="fused_silica" value="FS">fused-silica, Fused quartz/silica (FS)</option>
+                        <option  name="CaF2" value="CaF2">CaF2, Calcium fluoride</option>
+                        <option  name="MgF2" value="MgF2E">MgF2, Magnesium fluoride, Extraordinary</option>
+                        <option  name="MgF2" value="MgF2O">MgF2, Magnesium fluoride, Ordinary</option>
+                        <option  name="Ge" value="GE">Ge, Germanium</option>
+                        <option  name="Si" value="SI">Si, Silicon</option>
+                      </select>
+                    </div>
+
+
 
           <div class="col">
             <h5>Wavelength, $\lambda$: </h5>
@@ -77,10 +79,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
           </div>
             <div class="col">
               <h5>Reflective Index, n:</h5>
-              <div class="input-group">
                   <input type="number" class="form-control" ng-model="N" ng-change="myFunc()">
-                  <span class="input-group-addon"></span>
-              </div>
             </div>
 
           <div class="col">
@@ -116,10 +115,10 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
     <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
     <div class="mapouter">
       <div class="gmap_canvas">
-        <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
       </div>
-        <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
         </style>
       </div>
   </div>

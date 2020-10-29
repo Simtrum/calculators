@@ -60,7 +60,7 @@
             <b><h2 style="text-align:left;"> $T_p$=$\frac{ sin 2 \theta_0 sin 2 \theta_1}{sin^2(\theta_0 + \theta_1) cos^2(\theta_0 - \theta_1)}$</h2><br></b>
             <b><h2 style="text-align:left;"> $R_p$=$\frac{ tan^2(\theta_0 - \theta_1)}{ tan^2(\theta_0 + \theta_1)}$</h2></b>
             <b><h2 style="text-align:left;"> $R_s$=$\frac{ sin^2(\theta_0 - \theta_1)}{sin^2(\theta_0 + \theta_1)}$</h2></b>
-            <p style="text-align:left;">Incident angle of the light $\theta_0$; Refraction angle of the light $\theta_1$;<br> Transmission Coefficient with polarization is out of the paper  $T_s$;<br> Transmission Coefficient with polarization is in the plane of the paper $T_p$;<br> Reflection Coefficient with polarization is out of the paper $R_s$;<br> Reflection Coefficient with polarization is in the plane of the paper $R_p$</p>
+            <p style="text-align:left;">Incident angle of the light $\theta_0$; Refraction angle of the light $\theta_1$; Transmission Coefficient with polarization is out of the paper  $T_s$; Transmission Coefficient with polarization is in the plane of the paper $T_p$; Reflection Coefficient with polarization is out of the paper $R_s$; Reflection Coefficient with polarization is in the plane of the paper $R_p$</p>
 
           </div><br>
 
@@ -78,19 +78,13 @@
           <div class="row bottom_align_row">
           <div class="col">
             <h5>$n_0$: </h5>
-          <div class="input-group">
               <input  type="number" class="form-control" ng-model="n0" ng-change="myFunc();">
-              <span class="input-group-addon"></span>
-            </div>
           </div>
         </div>
           <div class="row bottom_align_row">
             <div class="col">
               <h5>$n_1$:</h5>
-            <div class="input-group">
                 <input type="number" class="form-control" ng-model="n1" ng-change="myFunc();">
-                <span class="input-group-addon"></span>
-              </div>
             </div>
         </div>
 
@@ -104,40 +98,28 @@
 
             <div class="col">
               <h5>$T_s$:</h5>
-                    <div class="input-group">
                         <input type="number" class="form-control" ng-model="ts" readonly/>
-                        <span class="input-group-addon"></span>
-              </div>
             </div>
           </div>
           <div class="row bottom_align_row">
 
             <div class="col">
               <h5>$T_p$:</h5>
-            <div class="input-group">
                 <input type="number" class="form-control" ng-model="tp" readonly/>
-                <span class="input-group-addon"></span>
-              </div>
             </div>
           </div>
           <div class="row bottom_align_row">
 
             <div class="col">
               <h5>$R_s$:</h5>
-            <div class="input-group">
                 <input type="number" class="form-control" ng-model="Rs" readonly/>
-                <span class="input-group-addon"></span>
-              </div>
             </div>
           </div>
           <div class="row bottom_align_row">
 
             <div class="col">
               <h5>$R_p$:</h5>
-            <div class="input-group">
                 <input type="number" class="form-control" ng-model="Rp" readonly/>
-                <span class="input-group-addon"></span>
-              </div>
             </div>
           </div>
 
@@ -157,10 +139,10 @@
     <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
     <div class="mapouter">
       <div class="gmap_canvas">
-        <iframe width="300" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
       </div>
-        <style>.mapouter{position:relative;text-align:right;height:200px;width:300px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:300px;}
+      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
         </style>
       </div>
 </div>

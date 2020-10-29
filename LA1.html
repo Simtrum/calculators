@@ -44,20 +44,19 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
     <div class="col">
       <div id="info_Diffraction_limited" class="collapse">
         <b><p style="text-align:left;">The following are some calculator that will help you calculate the <b>Peak Power for Gaussian Pulse</b> and the <b>Peak Power for Sech Pulse</b> (in Watts) by inputting the value of Pulse Energy (in Joules) and Pulse Duration (in Seconds).</p>
-
+        <img src="http://simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/LA1.png">
       </div><br>
 
       <fieldset class="input">
         <legend>Input</legend>
         <div class="col">
-          Please select your Pulse Shape (A) here...<br>
-          <select id="Pulse_shape" onchange="myFunction1();" ng-model="Pulse_shape" ng-change="myFunc1()">
-            <option value="Gaussian">Gaussian (0.441)</option>
-            <option value="Sech">Sech (0.315)</option>
-            <option value="Lorentz">Lorentz (0.142)</option>
-          </select><br>
-        </div>
-
+            <h5>Select Pulse Shape (A): </h5>
+              <select id="Pulse_shape" class="form-control" onchange="myFunction1();" ng-model="Pulse_shape" ng-change="myFunc1()">
+                <option value="Gaussian">Gaussian (0.441)</option>
+                <option value="Sech">Sech (0.315)</option>
+                <option value="Lorentz">Lorentz (0.142)</option>
+              </select><br>
+          </div>
       <div class="col">
           <h5>Spectral bandwidth (frequency), $\triangle f$: </h5>
           <div class="input-group">
@@ -67,10 +66,6 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
         </div>
 
 
-    </fieldset><br>
-
-
-    <fieldset class="input">
 
         <div class="col">
           <h5>Central Wavelength,$\lambda$: </h5>
@@ -112,10 +107,10 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
   <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
   <div class="mapouter">
     <div class="gmap_canvas">
-      <iframe width="340" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+      <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
       </iframe>
     </div>
-      <style>.mapouter{position:relative;text-align:right;height:200px;width:340px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:340px;}
+    <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
       </style>
     </div>
 </div>

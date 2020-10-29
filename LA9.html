@@ -1,0 +1,701 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
+  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
+  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAlign: "center"});
+</script>
+
+  <script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  <title>Optics Calculator</title>
+
+
+</head>
+  <body ng-app="main">
+
+
+    <div class="row" id="Diffraction_limited" ng-controller="control_panel">
+
+
+      <div class="col">
+        <ul  style="list-style-type:none;">
+         <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
+        </ul>
+      <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
+-->
+
+  <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
+  <div class="banner-content">
+    <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Calculator of Phase Matching for SHG</h1><br>
+
+  </div>
+  </div>
+
+      </div>
+
+      <div class="col">
+        <div id="info_Diffraction_limited" class="collapse" >
+          <p style:"text-align:left">This calcaulator will help you computes the phase matching for SHG </p>
+
+      <br><p><b>Negative uniaxial crystal</p>
+      <b><h2> $\theta= arcsin[(\frac{n_c^{2w}}{n_0^w})^2 \frac{(n_0^{2w})^2 - (n_0^w)^2}{(n_0^{2w})^2 - (n_c^{2w})^2}]^{1/2}$</h2></b>
+      <p>Postive uniaxial crystal</p>
+      <h2> $\theta= arcsin[(\frac{n_c^{w}}{n_0^2w})^2 \frac{(n_0^w)^2 - (n_0^{2w})^2}{(n_0^w)^2 - (n_c^w)^2}]^{1/2}$</h2></b>
+          </div><br>
+
+		<fieldset class="input">
+        <legend>Input</legend>
+        <div class="row bottom_align_row">
+          <div class="col">
+            <h5>Choose crystal and mode: </h5>
+              <select id="cryindex1" class="form-control" onchange="do1();">
+                      <option value="1">BBO  (O+O->E)</option>
+                      <option value="2">KDP  (O+O->E)</option>
+                      <option value="3">KBBF (O+O->E)</option>
+                      <option value="4">LBO  (O+O->E)</option>
+                      <option value="5">BIBO (E+E->O)</option>
+                    </select>
+          </div>
+
+              </div><br>
+
+
+
+        <div class="row bottom_align_row">
+          <div class="col">
+            <h5>Fundamental frequency laser wavelength : </h5>
+            <div class="input-group">
+                <input  type="number" class="form-control" id="wavelength" onkeyup="do1();">
+                <span class="input-group-addon">nm</span>
+            </div><br>
+          </div>
+
+        </div><br>
+
+      </fieldset>
+      <fieldset class="input">
+        <legend>Input</legend>
+        <div class="row bottom_align_row">
+          <div class="col">
+            <h5>Choose crystal and mode: </h5>
+              <select id="cryindex2" class="form-control" onchange="do2();">
+                      <option value="1">BBO  (O+O->E)</option>
+                      <option value="2">KDP  (O+O->E)</option>
+                      <option value="3">KBBF (O+O->E)</option>
+                      <option value="4">LBO  (O+O->E)</option>
+                      <option value="5">BIBO (E+E->O)</option>
+                    </select>
+          </div>
+
+              </div><br>
+        <div class="row bottom_align_row">
+          <div class="col">
+            <h5>Starting laser wavelength : </h5>
+            <div class="input-group">
+                <input  type="number" class="form-control" id="wavelength1" onkeyup="do2();">
+                <span class="input-group-addon">nm</span>
+            </div>
+          </div>
+
+              </div><br>
+              <div class="row bottom_align_row">
+                <div class="col">
+                  <h5>End laser wavelength : </h5>
+                  <div class="input-group">
+                      <input  type="number" class="form-control" id="wavelength2" onkeyup="do2();">
+                      <span class="input-group-addon">nm</span>
+                  </div><br>
+                </div>
+
+              </div><br>
+      </fieldset>
+
+        <fieldset class="output">
+          <legend>Output</legend>
+          <div class="row bottom_align_row">
+              <div class="col">
+                <h5>Fundamental frequency light refractive index:</h5>
+                  <input type="text" id="dispblock1"class="form-control" readonly/>
+              </div>
+			   <div class="col">
+                <h5>phase matching angle:</h5>
+                <div class="input-group">
+                  <input type="text" id="dispblock2" class="form-control" readonly/>
+                    <span class="input-group-addon">°</span>
+                </div>
+              </div>
+            </div><br>
+        </fieldset>
+        <fieldset class="output">
+          <legend>Output</legend>
+          <div class="row bottom_align_row">
+                <div class="col">
+                 <h3>XY Plane:</h5>
+                 <div class="row bottom_align_row">
+
+                 <h5>Fundamental frequency light refractive index:</h5>
+                     <input type="text" id="dispblock3"class="form-control" readonly/>
+             </div>
+             <div class="row bottom_align_row">
+
+                <h5>phase matching angle:</h5>
+                 <div class="input-group">
+                 <input type="text" id="dispblock4" class="form-control" readonly/>
+                     <span class="input-group-addon">°</span>
+              </div>
+              </div>
+            </div>
+        </div>
+
+      <div class="row bottom_align_row">
+        <div class="col">
+             <h3>XZ Plane:</h5>
+             <div class="row bottom_align_row">
+                 <h5>Fundamental frequency light refractive index:</h5>
+                   <input type="text" id="dispblock5"class="form-control" readonly/>
+               </div>
+         <div class="row bottom_align_row">
+
+          <h5>phase matching angle:</h5>
+             <div class="input-group">
+             <input type="text" id="dispblock6" class="form-control" readonly/>
+               <span class="input-group-addon">°</span>
+            </div>
+            </div>
+              </div>
+        </div>
+        <div class="row bottom_align_row">
+              <div class="col">
+               <h3>YZ Plane:</h5>
+               <div class="row bottom_align_row">
+               <h5>Fundamental frequency light refractive index:</h5>
+                   <input type="text" id="dispblock7"class="form-control" readonly/>
+           </div>
+           <div class="row bottom_align_row">
+
+              <h5>phase matching angle:</h5>
+               <div class="input-group">
+               <input type="text" id="dispblock8" class="form-control" readonly/>
+                   <span class="input-group-addon">°</span>
+            </div>
+            </div>
+          </div>
+</div>
+          <br>
+      </fieldset><br><br><br>
+
+
+        <canvas id="myCanvas" class="SHGcanvas" style="background-color:#ffffff;border:1px solid #000000; width:97%; height:50%;" title="右键可以保存图片"></canvas>
+
+      </div>
+
+
+          <div class ="coll">
+
+          <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
+          <div class="banner-content">
+              <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
+                <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
+                <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
+          <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
+          <div class="mapouter">
+            <div class="gmap_canvas">
+              <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+              </iframe>
+            </div>
+            <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
+              </style>
+            </div>
+      </div>
+      </div></div>
+        </body>
+
+<script>
+
+function do1()
+{
+  var no,ne,no2,ne2,nx,ny,nz,nx2,ny2,nz2,p,p1,p2,p3,pshow,pshow1,pshow2,pshow3;
+  var w=document.getElementById('wavelength');
+  var w1=w.value/1000;
+  var w2=w1/2;
+  var disp1=document.getElementById("dispblock1");
+  var disp2=document.getElementById("dispblock2");
+  var disp3=document.getElementById("dispblock3");
+  var disp4=document.getElementById("dispblock4");
+  var disp5=document.getElementById("dispblock5");
+  var disp6=document.getElementById("dispblock6");
+  var disp7=document.getElementById("dispblock7");
+  var disp8=document.getElementById("dispblock8");
+
+
+
+  switch(cryindex1.value)
+  {
+  case "1":
+    {
+      no=BBO_no(w1);
+      ne=BBO_ne(w1);
+      no2=BBO_no(w2);
+      ne2=BBO_ne(w2);
+      p=pmangle(no,no2,ne2);
+      pshow=p*180/Math.PI;
+      disp1.value=no.toFixed(3);
+      disp2.value=pshow.toFixed(3);
+      disp3.value="";
+      disp4.value="";
+      disp5.value="";
+      disp6.value="";
+      disp7.value="";
+      disp8.value="";
+
+      break;
+    }
+  case "2":
+    {
+      no=KDP_no(w1);
+      ne=KDP_ne(w1);
+      no2=KDP_no(w2);
+      ne2=KDP_ne(w2);
+      p=pmangle(no,no2,ne2);
+      pshow=p*180/Math.PI;
+      disp1.value=no.toFixed(3);
+      disp2.value=pshow.toFixed(3);
+      disp3.value="";
+      disp4.value="";
+      disp5.value="";
+      disp6.value="";
+      disp7.value="";
+      disp8.value="";
+
+      break;
+    }
+  case "3":
+    {
+      no=KBBF_no(w1);
+      ne=KBBF_ne(w1);
+      no2=KBBF_no(w2);
+      ne2=KBBF_ne(w2);
+      p=pmangle(no,no2,ne2);
+      pshow=p*180/Math.PI;
+      disp1.value=no.toFixed(3);
+      disp2.value=pshow.toFixed(3);
+      disp3.value="";
+      disp4.value="";
+      disp5.value="";
+      disp6.value="";
+      disp7.value="";
+      disp8.value="";
+
+      break;
+    }
+  case "4":
+    {
+      nx=LBO_nx(w1);
+      ny=LBO_ny(w1);
+      nz=LBO_nz(w1);
+      nx2=LBO_nx(w2);
+      ny2=LBO_ny(w2);
+      nz2=LBO_nz(w2);
+      p1=pmangle(nz,ny2,nx2);			//YX-Plane
+      pshow1=p1*180/Math.PI;
+      p2=pmangle(ny,nz2,nx2);			//ZX-Plane
+      pshow2=90-p2*180/Math.PI;
+      p3=pmangle(nx,nz2,ny2);			//ZY-Plane
+      pshow3=90-p3*180/Math.PI;
+      disp1.value="";
+      disp2.value="";
+      disp3.value=nz.toFixed(3);
+      disp4.value="θ=90°,Φ="+pshow1.toFixed(3);
+      disp5.value=ny.toFixed(3);
+      disp6.value="θ="+pshow2.toFixed(3)+"°,Φ=0°";
+      disp7.value=nx.toFixed(3);
+      disp8.value="θ="+pshow3.toFixed(3)+"°,Φ=90°";
+      break;
+    }
+  case "5":
+    {
+      nx=BIBO_nx(w1);
+      ny=BIBO_ny(w1);
+      nz=BIBO_nz(w1);
+      nx2=BIBO_nx(w2);
+      ny2=BIBO_ny(w2);
+      nz2=BIBO_nz(w2);
+      p1=pmanglep(ny,nx,nz2);			//YX-Plane,但是nx>nz>ny,no<ne,y->x,z->y,x->z,xzplane
+      pshow1=p1*180/Math.PI;
+      p2=pmanglep(nz,nx,ny2);			//ZX-Plane，变换得到该平面为YZ
+      pshow2=p2*180/Math.PI;
+      p3=pmanglep(ny,nz,nx2);			//ZY-Plane，变换得到该平面为XY
+      pshow3=p3*180/Math.PI;
+      disp1.value="";
+      disp2.value="";
+      disp3.value=nx2.toFixed(3);
+      disp6.value="theta;="+pshow1.toFixed(3)+"°,&phi;=0°";
+      disp5.value=nz2.toFixed(3);
+      disp8.value="&theta;="+pshow2.toFixed(3)+"°,&phi;=90°<br>";
+      disp7.value=ny2.toFixed(3);
+      disp4.value="theta=90°,phi="+pshow3.toFixed(3);
+      break;
+    }
+  default:
+    ;
+  }
+}
+function do2()
+{
+  var w1,w2,wnum,dw,ne,no2,ne2,p;
+  var ww=[];
+  var no=[];
+  var no2=[];
+  var XX=[];
+  var pshow=[];
+  var ws=document.getElementById('wavelength1');
+  var we=document.getElementById('wavelength2');
+  w1=ws.value/1000;
+  w2=we.value/1000;
+  wnum=200;						//计算数据间隔
+  dw=(w2-w1)/wnum;
+
+  switch(cryindex2.value)
+  {
+  case "1":
+    {
+      for(i=0;i<wnum;i++)
+      {
+        ww[i]=w1+dw*i;
+        XX[i]=ww[i]*Math.pow(10,3);
+        no[i]=BBO_no(ww[i]);
+        ne=BBO_ne(ww[i]);
+        no2=BBO_no(ww[i]/2);
+        ne2=BBO_ne(ww[i]/2);
+        p=pmangle(no[i],no2,ne2);
+        pshow[i]=p*180/Math.PI;
+      }
+      break;
+    }
+  case "2":
+    {
+      for(i=0;i<wnum;i++)
+      {
+        ww[i]=w1+dw*i;
+        XX[i]=ww[i]*Math.pow(10,3);
+        no[i]=KDP_no(ww[i]);
+        ne=KDP_ne(ww[i]);
+        no2=KDP_no(ww[i]/2);
+        ne2=KDP_ne(ww[i]/2);
+        p=pmangle(no[i],no2,ne2);
+        pshow[i]=p*180/Math.PI;
+      }
+      break;
+    }
+  case "3":
+    {
+      for(i=0;i<wnum;i++)
+      {
+        ww[i]=w1+dw*i;
+        XX[i]=ww[i]*Math.pow(10,3);
+        no[i]=KBBF_no(ww[i]);
+        ne=KBBF_ne(ww[i]);
+        no2=KBBF_no(ww[i]/2);
+        ne2=KBBF_ne(ww[i]/2);
+        p=pmangle(no[i],no2,ne2);
+        pshow[i]=p*180/Math.PI;
+      }
+      break;
+    }
+  case "4":
+    {
+      for(i=0;i<wnum;i++)
+      {
+        ww[i]=w1+dw*i;
+        XX[i]=ww[i]*Math.pow(10,3);
+        no[i]=LBO_nz(ww[i]);
+        no2=LBO_ny(ww[i]/2);
+        ne2=LBO_nx(ww[i]/2);
+        p=pmangle(no[i],no2,ne2);
+        pshow[i]=p*180/Math.PI;
+      }
+      break;
+    }
+  case "5":
+    {
+      for(i=0;i<wnum;i++)
+      {
+        ww[i]=w1+dw*i;
+        XX[i]=ww[i]*Math.pow(10,3);
+        no=BIBO_nz(ww[i]);
+        ne=BIBO_nx(ww[i]);
+        no2[i]=BIBO_ny(ww[i]/2);
+        p=pmanglep(no,ne,no2[i]);
+        pshow[i]=p*180/Math.PI;
+      }
+      break;
+    }
+  default:
+    ;
+  }
+  drawFig('myCanvas',XX,pshow,'Wavelength/nm','Phase angle/°',4);
+
+  if (document.getElementById("checkdata").checked)
+  {
+    newWindow=window.open("","Data","width=300,height=500,left=200,top=50,menubar='NO',status='NO',toolbar='NO',titlebar='NO'");
+    newWindow.document.write("基频波长/nm\t折射率\t匹配角/°<br>");
+    for(i=0;i<wnum;i++)
+    {
+      if(cryindex2.value=="5")
+        {newWindow.document.write(ww[i].toFixed(5)*1000+"\t\t"+no2[i].toFixed(3)+"\t\t"+pshow[i].toFixed(3)+"<br>");}
+      else
+        {newWindow.document.write(ww[i].toFixed(5)*1000+"\t\t"+no[i].toFixed(3)+"\t\t"+pshow[i].toFixed(3)+"<br>");}
+    }
+  }
+}
+
+function pmangle(no,no2,ne2)			//负晶体
+{
+	var p;
+	p=Math.asin(Math.sqrt(Math.pow(ne2/no,2)*(Math.pow(no2,2)-Math.pow(no,2))/(Math.pow(no2,2)-Math.pow(ne2,2))));
+	return p;
+}
+function pmanglep(no,ne,no2)			//正晶体
+{
+	var p;
+	p=Math.asin(Math.sqrt(Math.pow(ne/no2,2)*(Math.pow(no,2)-Math.pow(no2,2))/(Math.pow(no,2)-Math.pow(ne,2))));
+	return p;
+}
+function BBO_no(wave)
+{
+	var BBO_no;
+	BBO_no=Math.sqrt(2.7359+0.01878/(wave*wave-0.01822)-0.01354*wave*wave);
+	return BBO_no;
+}
+function BBO_ne(wave)
+{
+	var BBO_ne;
+	BBO_ne=Math.sqrt(2.3753+0.01224/(wave*wave-0.01667)-0.01516*wave*wave);
+	return BBO_ne;
+}
+function KDP_no(wave)
+{
+	var KDP_no;
+	KDP_no=Math.sqrt(2.259276+0.01008956/(wave*wave-0.012942625)+13.00522*wave*wave/(wave*wave-400));
+	return KDP_no;
+}
+function KDP_ne(wave)
+{
+	var KDP_ne;
+	KDP_ne=Math.sqrt(2.132668+0.008637494/(wave*wave-0.012281043)+3.2279924*wave*wave/(wave*wave-400));
+	return KDP_ne;
+}
+function KBBF_no(wave)
+{
+	var KBBF_no;
+	KBBF_no=Math.sqrt(1+1.1713*wave*wave/(wave*wave-0.00733)-0.01022*wave*wave);
+	return KBBF_no;
+}
+function KBBF_ne(wave)
+{
+	var KBBF_ne;
+	KBBF_ne=Math.sqrt(1+0.9316*wave*wave/(wave*wave-0.00675)-0.00169*wave*wave);
+	return KBBF_ne;
+}
+function LBO_nx(wave)
+{
+	var LBO_nx;
+	LBO_nx=Math.sqrt(2.454140+0.011249/(wave*wave-0.011350)-0.014591*wave*wave-6.60/100000*Math.pow(wave,4));
+	return LBO_nx;
+}
+function LBO_ny(wave)
+{
+	var LBO_ny;
+	LBO_ny=Math.sqrt(2.539070+0.012711/(wave*wave-0.012523)-0.018540*wave*wave+2.00/10000*Math.pow(wave,4));
+	return LBO_ny;
+}
+function LBO_nz(wave)
+{
+	var LBO_nz;
+	LBO_nz=Math.sqrt(2.586179+0.013099/(wave*wave-0.011893)-0.017968*wave*wave-2.26/10000*Math.pow(wave,4));
+	return LBO_nz;
+}
+function BIBO_nx(wave)
+{
+	var BIBO_nx;
+	BIBO_nx=Math.sqrt(3.65454+0.05112/(wave*wave-0.03713)-0.02261*wave*wave);
+	return BIBO_nx;
+}
+function BIBO_ny(wave)
+{
+	var BIBO_ny;
+	BIBO_ny=Math.sqrt(3.07403+0.03231/(wave*wave-0.03163)-0.013376*wave*wave);
+	return BIBO_ny;
+}
+function BIBO_nz(wave)
+{
+	var BIBO_nz;
+	BIBO_nz=Math.sqrt(3.16853+0.03731/(wave*wave-0.03463)-0.017508*wave*wave);
+	return BIBO_nz;
+}
+
+
+
+function drawFig(canvname,x,y,Xtitle,Ytitle,axis_label_num)			//绘图函数
+{
+	var i,j,num,maxy,miny,dy,tmpy;
+	var axis_Xspace,axis_Yspace,axis_Xbias,axis_Ybias,axis_label_num;
+	var newx=[];
+	var newy=[];
+
+	axis_Xspace=40;						//曲线在画布左右两侧留空白
+	axis_Yspace=25;						//曲线在画布上下两侧留空白
+	axis_Xbias=17;						//坐标系向左平移量
+	axis_Ybias=-8;						//坐标系向下平移量
+
+	num=y.length;						//获取绘图数据长度
+	maxy=getmax(y);						//获取Y轴数据最大值
+	miny=getmin(y);						//获取Y轴数据最小值
+	dy=(maxy-miny)/num;					//获取Y轴数据间隔
+
+	var canv=document.getElementById(canvname);
+	canvwidth=canv.width;					//获取画布尺寸
+	canvheight=canv.height;
+	var cxt=canv.getContext("2d");
+	cxt.clearRect(0,0,canvwidth,canvheight);		//清空画布
+	cxt.strokeStyle="#0000ff";				//画笔颜色
+	cxt.lineWidth=2;
+
+	cxt.moveTo(Math.floor(axis_Xspace+axis_Xbias),Math.floor(canvheight-axis_Yspace-(y[0]-miny)/dy*(canvheight-axis_Yspace*2)/num+axis_Ybias));				//画笔移动到曲线第一个点
+	for(i=1;i<num;i++)
+	{
+		newx=Math.floor(axis_Xspace+i*(canvwidth-axis_Xspace*2)/num+axis_Xbias);	//映射数据到坐标
+		newy=Math.floor(canvheight-axis_Yspace-(y[i]-miny)/dy*(canvheight-axis_Yspace*2)/num+axis_Ybias);
+		cxt.lineTo(newx,newy);				//绘图
+	}
+	cxt.stroke();
+
+	cxt.strokeStyle="#000000";					//画坐标轴开始
+	cxt.beginPath();
+	cxt.moveTo(axis_Xspace-5+axis_Xbias,canvheight-axis_Yspace+5+axis_Ybias);
+	cxt.lineTo(canvwidth-axis_Xspace+5+axis_Xbias,canvheight-axis_Yspace+5+axis_Ybias);
+	cxt.stroke();
+	cxt.beginPath();
+	cxt.moveTo(axis_Xspace-5+axis_Xbias,canvheight-axis_Yspace+5+axis_Ybias);
+	cxt.lineTo(axis_Xspace-5+axis_Xbias,axis_Yspace-5+axis_Ybias);
+	cxt.stroke();
+	cxt.beginPath();
+	cxt.moveTo(canvwidth-axis_Xspace+5+axis_Xbias,canvheight-axis_Yspace+5+axis_Ybias);
+	cxt.lineTo(canvwidth-axis_Xspace+axis_Xbias,canvheight-axis_Yspace+5+2+axis_Ybias);
+	cxt.lineTo(canvwidth-axis_Xspace+axis_Xbias,canvheight-axis_Yspace+5-2+axis_Ybias);
+	cxt.closePath();
+	cxt.fillStyle="#000000";
+	cxt.fill();
+	cxt.stroke();
+	cxt.beginPath();
+	cxt.moveTo(axis_Xspace-5+axis_Xbias,axis_Yspace-5+axis_Ybias);
+	cxt.lineTo(axis_Xspace-5-2+axis_Xbias,axis_Yspace+axis_Ybias);
+	cxt.lineTo(axis_Xspace-5+2+axis_Xbias,axis_Yspace+axis_Ybias);
+	cxt.closePath();
+	cxt.fillStyle="#000000";
+	cxt.fill();
+	cxt.stroke();							//画坐标轴结束
+
+	for(j=0;j<axis_label_num;j++)					//坐标轴标注开始
+	{
+		cxt.fillText(Math.floor(x[0]+(x[x.length-1]-x[0])/(axis_label_num-1)*j),Math.floor(axis_Xspace+(canvwidth-axis_Xspace*2-20)/(axis_label_num-1)*j+axis_Xbias),canvheight-axis_Yspace+17+axis_Ybias);
+		tmpy=miny+(maxy-miny)/(axis_label_num-1)*j;
+		cxt.fillText(tmpy.toFixed(1),axis_Xspace+axis_Xbias-38,Math.floor(canvheight-axis_Yspace+axis_Ybias-j*(canvheight-2*axis_Yspace)/(axis_label_num-1)));
+		cxt.stroke();
+		cxt.beginPath();
+		cxt.moveTo(Math.floor(axis_Xspace+(canvwidth-axis_Xspace*2)/(axis_label_num-1)*j+axis_Xbias),canvheight-axis_Yspace+5+axis_Ybias);
+		cxt.lineTo(Math.floor(axis_Xspace+(canvwidth-axis_Xspace*2)/(axis_label_num-1)*j+axis_Xbias),canvheight-axis_Yspace+5+axis_Ybias-3);
+		cxt.stroke();
+		cxt.beginPath();
+		cxt.moveTo(axis_Xspace-5+axis_Xbias,Math.floor(canvheight-axis_Yspace+axis_Ybias-j*(canvheight-2*axis_Yspace)/(axis_label_num-1)));
+		cxt.lineTo(axis_Xspace-5+axis_Xbias+3,Math.floor(canvheight-axis_Yspace+axis_Ybias-j*(canvheight-2*axis_Yspace)/(axis_label_num-1)));
+		cxt.stroke();
+	}
+	cxt.save();
+	cxt.rotate(-Math.PI/2);
+	cxt.fillText(Ytitle,-Math.floor(canvheight/2+5),15);
+	cxt.restore();
+	cxt.fillText(Xtitle,Math.floor((canvwidth-10)/2),canvheight-5);	//坐标轴标注结束
+
+}
+
+function getmax(a)						//获取数组最大值函数
+{
+	var i,max;
+	max=a[0];
+	for(i=0;i<a.length;i++)
+	{
+		if (a[i]>max)
+			max=a[i];
+	}
+	return max;
+}
+function getmin(a)						//获取数组最小值函数
+{
+	var i,min;
+	min=a[0];
+	for(i=0;i<a.length;i++)
+	{
+		if (a[i]<min)
+			min=a[i];
+	}
+	return min;
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+     <!--INPUT-->
+   <style>
+   fieldset{
+     margin:2% 1% 1% 0%;
+   }
+     fieldset.input {
+       background-color: #e6e6e6;
+   float: left;
+   width: 48%;
+   display: inline-block;
+   box-sizing: border-box;
+    }
+
+      fieldset.output {
+      background-color: #e6e6e6;
+    float: left;
+    width: 48%;
+    display: inline-block;
+    box-sizing: border-box;
+     }
+   </style>
+
+   <!--OUTPUT-->
+   <style>
+     legend {
+       font-size: 180%;
+       border-radius: 10px 10px 0 0;
+       background-image: linear-gradient(to  bottom  , lightblue,#03448c 90%);
+       background-color: #668cff;
+       color: white;
+       font-weight: bold;
+       text-align: center;
+     }
+   </style>
+</html>
