@@ -4,7 +4,9 @@
 <head>
 <title>Simtrum</title>
 
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/main.css">
+<link rel="stylesheet" media="screen and (min-width: 321px)and (max-width: 700px)" href="css/appsmall.css">
+<link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/applarge.css">
   <meta name = "viewport" content = "width = device-width, initial-scale = 1">
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
@@ -113,16 +115,7 @@
 * {
   box-sizing: border-box;
 }
-#myInput {
-  background-image: url('image/search.jpg');
-  background-repeat: no-repeat;
-  background-size: 15%;
-  width: 85%;
-  font-size: 90%;
-  padding: 2% 5% 2% 20%;
-  border: 1px solid #ddd;
 
-}
 #myUL {
   list-style-type: none;
   padding: 0;
@@ -132,17 +125,6 @@
 
 }
 
-#myUL li a {
-  border: 1px solid black;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: lightgrey;
-  padding: 5%;
-  text-decoration: none;
-  font-size: 90%;
-  color: black;
-  display: block
-
-}
 
 #myUL li a:hover:not(.header) {
   background-color: #40E0D0;
