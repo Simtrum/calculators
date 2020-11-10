@@ -81,7 +81,7 @@
   },
    {
     "id": 17,
-    "name": "GDD and TOD of grating pair ",
+    "name": "GDD and TOD of grating pair",
     "topic": "Optics",    
   },
    {
@@ -103,5 +103,5 @@
     "id": 21,
     "name": "Spatial dispersion for single grating",
     "topic": "Optics",    
-  },  
+  }  
 ]  
