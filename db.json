@@ -1,22 +1,93 @@
 {
-  "employees": [
+  "Optics": [
     {
       "id": 1,
-      "first_name": "Sebastian",
-      "last_name": "Eschweiler",
-      "email": "sebastian@codingthesmartway.com"
+      "name": "Reflective Index",
     },
     {
       "id": 2,
-      "first_name": "Steve",
-      "last_name": "Palmer",
-      "email": "steve@codingthesmartway.com"
+      "name": "Lens radius calculator",
     },
-    {
+        {
       "id": 3,
-      "first_name": "Ann",
-      "last_name": "Smith",
-      "email": "ann@codingthesmartway.com"
-    }
+      "name": "Laser Beam Spot size",
+    },
+        {
+      "id": 4,
+      "name": "Single convex lens imaging",
+    },
+        {
+      "id": 5,
+      "name": "Two convex lens imaging",
+    },
+     {
+      "id": 6,
+      "name": "Minimum deviation angle of prisms",
+    },
+     {
+      "id": 7,
+      "name": "Beam waist with convex lens",
+    },
+     {
+      "id": 8,
+      "name": "Magnification With A Telescope",
+    },
+     {
+      "id": 9,
+      "name": "Refraction Angle calculation",
+    },
+     {
+      "id": 10,
+      "name": "Displacement distance of light",
+    }, {
+      "id": 11,
+      "name": "Transmission and reflection coefficients of light",
+    },
+     {
+      "id": 12,
+      "name": "Diffracted angle of Transmission Gratings",
+    },
+     {
+      "id": 13,
+      "name": "Diffracted angle and the Littrow angle  of Reflective Gratings",
+    },
+     {
+      "id": 14,
+      "name": "Fringe Period of two light interference",
+    },
+    
+     {
+      "id": 15,
+      "name": "Phase Retardation of Light",
+    },
+    
+     {
+      "id": 16,
+      "name": "Prism pair dispersion compensation",
+    },
+    
+     {
+      "id": 17,
+      "name": "GDD and TOD of grating pair ",
+    },
+    
+     {
+      "id": 18,
+      "name": "Laser dispersion with different materials",
+    },
+    
+     {
+      "id": 19,
+      "name": "Calculator of pulse stretching when knows GDD",
+    },
+     {
+      "id": 20,
+      "name": "Calculator of pulse stretching to get GDD",
+    },
+    
+     {
+      "id": 21,
+      "name": "Spatial dispersion for single grating",
+    },
   ]
 }
