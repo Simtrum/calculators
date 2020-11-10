@@ -1,12 +1,11 @@
 {
   "Optics": [
-    {
-      "id": 1, "name": "json-server"
-      "id": 2, "name": "json-server"
-      "id": 3, "name": "json-server"
-      "id": 4, "name": "json-server"
-      "id": 5, "name": "json-server"
+    { "id": 1, "name": "json-server"},
+    { "id": 2, "name": "json-server"},
+    { "id": 3, "name": "json-server"},
+    { "id": 4, "name": "json-server"},
+    { "id": 5, "name": "json-server"}
     
-    }
+    
   ],
 }
