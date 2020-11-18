@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
-  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/calculator.css">
+  <link rel="stylesheet" type="text/css" href="/WebShop/css/calculator.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -26,9 +25,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
 
       <div class="col">
-        <ul  style="list-style-type:none;">
-         <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
-        </ul>
+
       <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
     -->
 
@@ -52,7 +49,6 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
       <fieldset class="input">
         <legend>Input</legend>
 
-        <div class="row bottom_align_row">
           <div class="col">
             <h5>Laser Wavelength, $\lambda$:</h5>
             <div class="input-group">
@@ -67,9 +63,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
                 <span class="input-group-addon">mm</span>
             </div>
           </div>
-        </div>
 
-        <div class="row bottom_align_row">
           <div class="col">
             <h5>Focal Length of Lens (Input side), $F_1$:</h5>
             <div class="input-group">
@@ -78,15 +72,13 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
             </div>
           </div>
           <div class="col">
-            <h5>Focal Length of Lens (output side), $F_2$:</h5>
+            <h5><br>&nbsp;Focal Length of Lens (output side), $F_2$: </h5>
             <div class="input-group">
                 <input  type="number" class="form-control" ng-model="focal_length_2" ng-change="myFunc()">
                 <span class="input-group-addon">m</span>
             </div>
           </div>
-        </div>
 
-        <div class="row bottom_align_row">
           <div class="col">
             <h5>Distance between the input waist and the input lens, $l$:</h5>
             <div class="input-group">
@@ -94,39 +86,16 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
                 <span class="input-group-addon">m</span>
             </div><br>
           </div>
-        </div>
       </fieldset><br>
 
         <fieldset class="output">
           <legend>Output</legend>
-          <div class="row bottom_align_row">
               <div class="col">
                 <h5>Amplification coefficient, $M'$:</h5>
-                <div class="input-group">
                     <input type="number" class="form-control" ng-model="output" readonly/>
-                    <span class="input-group-addon"></span>
-                </div>
-              </div>
-          </div><br>
+              <br></div>
       </fieldset>
-    </div><div class ="coll">
-    <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
-    <div class="banner-content">
-        <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
-          <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
-          <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
-    <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
-    <div class="mapouter">
-      <div class="gmap_canvas">
-        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-        </iframe>
-      </div>
-      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
-        </style>
-      </div>
-  </div>
-  </div></div>
-  </div>
+    </div>
   </body>
 
 

@@ -50,11 +50,3 @@
   .collapse img{
     width:600px;
   }
-  #gmap_canvas{
-    width:100%;
-    height:150%;
-  }
-  legend{
-    font-size: 180%;
-    font-weight: bold;
-  }

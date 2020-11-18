@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/WebShop/css/calculator.css">
+  <link rel="stylesheet" type="text/css" href="css/calculator.css">
 
-    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
-  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -37,9 +36,7 @@
 
 
       <div class="col">
-        <ul  style="list-style-type:none;">
-         <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
-        </ul>
+
       <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
 -->
 
@@ -55,7 +52,7 @@
       <div class="col">
         <div id="info_Diffraction_limited" class="collapse" >
           <p style="text-align:left;">This calculator will help you calcaulate the distance between the incident and the refraction light after light travels through a planar plate</p>
-          <img src="https://www.simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O-10.png" />
+          <center><img src="image/O10-resize.png" /></center>
           <b><h2 style="text-align:left;"> $n_1$sin$\theta_1$=$n_2$sin$\theta_2$</h2></b>
           <b><h2 style="text-align:left;">$D$= $d$sin($\theta_1$-$\theta_2$) </h2></b>
           <p style="text-align:left;">Incident Refractive Index <b>$n_1$</b>; Refraction Refractive Index <b>$n_2$</b>;<br> Incident angle <b>$\theta_1$</b>; Refraction angle <b>$\theta_2$</b>; The Thickness of The Plate <b>$d$</b><br></p>
@@ -64,19 +61,14 @@
 
       <fieldset class="input">
         <legend><b>Input</b></legend>
-        <div class="row bottom_align_row">
           <div class="col">
             <h5>Incident Refractive Index, $n_1$: </h5>
               <input  type="number" class="form-control" ng-model="n1" ng-change="myFunc()">
           </div>
-        </div>
-          <div class="row bottom_align_row">
           <div class="col">
             <h5>Refraction Refractive Index, $n_2$:</h5>
                   <input type="number" class="form-control" ng-model="n2" ng-change="myFunc()">
           </div>
-        </div>
-          <div class="row bottom_align_row">
             <div class="col">
               <h5>Incident angle, $\theta_1$: </h5>
           <div class="input-group">
@@ -84,16 +76,13 @@
               <span class="input-group-addon">degree (°)</span>
               </div>
             </div>
-        </div>
-        <div class="row bottom_align_row">
           <div class="col">
             <h5>The Thickness of The Plate, $d$: </h5>
             <div class="input-group">
                 <input  type="number" class="form-control" ng-model="thickness" ng-change="myFunc()">
                 <span class="input-group-addon">mm</span>
-            </div>
+            </div><br>
           </div>
-      </div>
 
 
 
@@ -102,16 +91,14 @@
 
         <fieldset class="output">
           <legend><b>Output</b></legend>
-          <div class="row bottom_align_row">
 
             <div class="col">
               <h5>Distance:</h5>
               <div class="input-group">
                   <input type="number" class="form-control" ng-model="output" readonly/>
                   <span class="input-group-addon">mm</span>
-              </div>
+              </div><br>
             </div>
-          </div>
           <br>
 
 
@@ -119,23 +106,7 @@
     </div>
 
 
-    <div class ="coll">
-    <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
-    <div class="banner-content">
-        <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
-          <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
-          <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
-    <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
-    <div class="mapouter">
-      <div class="gmap_canvas">
-        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-        </iframe>
-      </div>
-      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
-        </style>
-      </div>
-</div>
-</div></div>
+
   </body>
 
 

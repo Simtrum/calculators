@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/WebShop/css/calculator.css">
+  <link rel="stylesheet" type="text/css" href="css/calculator.css">
 
-    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
-  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -37,9 +35,7 @@
 
 
       <div class="col">
-        <ul  style="list-style-type:none;">
-         <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
-        </ul>
+
       <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
 -->
 
@@ -55,17 +51,16 @@
       <div class="col">
         <div id="info_Diffraction_limited" class="collapse" >
           <p3 style="text-align:left;">This Calculator Will Help You To calculate The Diffracted Angle For A Given Incidence Angle and The Littrow Angle of Reflective Gratings. </p3>
-            <img src="https://www.simtrum.com/upload/%E6%B5%8B%E8%AF%95%E5%95%86%E5%93%81/Calculator/O-14.png"/>
             <p style="text-align:left;">If m is negative, it means that the diffracted light and diffracted light are on the same side of the normal. If m is positive, it means that the diffracted light and diffracted light are on the opposite side of the normal. </p>
-            <b><h3 style="text-align:left;"> $\frac{[ sin(\theta_m) + sin(\theta_i)]}{N}$= $m \lambda$</h3></b>
-            <b><h3 style="text-align:left;">$\theta$=arcsin$\frac{N m \lambda}{2}$</h3></b>
-            <p style="text-align:left;">Raster Line Density $N$; Incidence Angle $\theta_i$; Order $m$; Wavelength $\lambda$<br> Diffracted Angle $\theta_m$; Littrow Angle $\theta$;</p>
+            <center><img src="image/O14-resize.png" width="30%"/></center>
+            <b><h3 style="text-align:center;"> $\frac{[ sin(\theta_m) + sin(\theta_i)]}{N}$= $m \lambda$</h3></b>
+            <b><h3 style="text-align:center;">$\theta$=arcsin$\frac{N m \lambda}{2}$</h3></b>
+            <p style="text-align:left;">Raster Line Density $N$; Incidence Angle $\theta_i$; Order $m$; Wavelength $\lambda$; Diffracted Angle $\theta_m$; Littrow Angle $\theta$;</p>
 
           </div><br>
 
       <fieldset class="input">
         <legend><b>Input</b></legend>
-        <div class="row bottom_align_row">
           <div class="col">
             <h5>Raster Line Density, $N$: </h5>
           <div class="input-group">
@@ -73,8 +68,6 @@
               <span class="input-group-addon">1/mm</span>
             </div>
           </div>
-        </div>
-          <div class="row bottom_align_row">
           <div class="col">
             <h5> Incidence Angle, $\theta_i$: </h5>
             <div class="input-group">
@@ -82,29 +75,23 @@
                 <span class="input-group-addon">degree (°)</span>
             </div>
           </div>
-        </div>
-          <div class="row bottom_align_row">
             <div class="col">
               <h5>Order, $m$:</h5>
                     <input type="number" class="form-control" ng-model="m" ng-change="myFunc();">
             </div>
-        </div>
-        <div class="row bottom_align_row">
           <div class="col">
             <h5>Wavelength, $\lambda$:</h5>
               <div class="input-group">
                   <input type="number" class="form-control" ng-model="nm" ng-change="myFunc();">
                   <span class="input-group-addon">nm</span>
-            </div>
+            </div><br>
           </div>
-      </div>
 
       <br>
       </fieldset><br><br><br>
 
         <fieldset class="output">
           <legend><b>Output</b></legend>
-          <div class="row bottom_align_row">
 
             <div class="col">
               <h5>Diffracted Angle, $\theta_m$:</h5>
@@ -113,41 +100,20 @@
                   <span class="input-group-addon">degree (°)</span>
               </div>
             </div>
-          </div>
-          <div class="row bottom_align_row">
 
             <div class="col">
               <h5>Littrow Angle, $\theta$:</h5>
                 <div class="input-group">
                     <input type="number" class="form-control" ng-model="littrow" readonly/>
                     <span class="input-group-addon">degree (°)</span>
-              </div>
+              </div><br>
             </div>
-          </div>
           <br>
 
 
       </fieldset><br><br><br><br><br>
     </div>
 
-
-    <div class ="coll">
-    <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
-    <div class="banner-content">
-        <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
-          <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
-          <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
-    <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
-    <div class="mapouter">
-      <div class="gmap_canvas">
-        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-        </iframe>
-      </div>
-      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
-        </style>
-      </div>
-</div>
-</div></div>
   </body>
 
 

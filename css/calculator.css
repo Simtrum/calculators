@@ -1,27 +1,23 @@
-.col h2{
-  font-size: 180%;
-}
+
   .logo img{
-    width: 40%;
-    margin-top: 3%;
-    margin-left: -13%;
-    position: relative;
+    width: 180px;
+    margin-top: 10px;
+    margin-left: -40px;
+
   }
   .title{
     display: block;
-    font-size: 140%;
-    margin-left:1%;
+    font-size: 30px;
   }
   .title span{
-    font-size: 90%;
+    font-size: 25px;
   }
   .icons p{
-    margin-left: 3%;
     width: 200px;
     margin: 20px 10px 20px 20px;
   }
   .col{
-    margin:auto;
+    margin: auto;
     text-align: left;
     width: 80%;
     color:black;
@@ -33,23 +29,26 @@
     color: black;
   }
   .col h5{
-      font-size: 80%;
+      font-size: 15px;
        font-weight: bold;
   }
+  
 
   .banner span{
-   color:#03448c;
+   margin-left: 5px;
+   font-size:30px;
+   color:black;
   }
   .banner p{
-    margin-left: 1%;
+    margin-left: 5px;
   }
 
   .banner{
     background-color: #fff;
   }
-  .input-group span{
-    font-size: 100%;
-  }
-  .collapse img{
-    width:300px;
-  }
+.graphx{
+  width: 100%;
+}
+.collapse img{
+    max-width: 100%;
+}

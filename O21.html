@@ -4,10 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" media="screen and (max-width: 320px)" href="css/smobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 320px)and (max-width: 700px)" href="css/mobile.css">
-  <link rel="stylesheet" media="screen and (min-width: 701px)and (max-width: 900px) " href="css/tablet.css">
-  <link rel="stylesheet" media="screen and (min-width: 901px)" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/calculator.css">
+  <link rel="stylesheet" type="text/css" href="/WebShop/css/calculator.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -37,15 +35,13 @@
 
 
       <div class="col">
-        <ul  style="list-style-type:none;">
-         <li class="logo"><a href="main.html"><img src="image/Simtrum.jpg"></a></li>
-        </ul>
+
       <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
 -->
 
   <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
   <div class="banner-content">
-    <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Laser dispersion with different materials</h1><br>
+    <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Pulse stretching to get GDD</h1><br>
 
   </div>
   </div>
@@ -57,45 +53,38 @@
           <p style="text-align:left;">This calcaulator will help you computes the pulse stretching to get GDD </p>
 
 
-      <b><h2> GDD = $\frac{t\sqrt{t^{t2}-t^2}}{4ln2}$</h2></b>
+      <b><h2> GDD = $\frac{\tau\sqrt{\tau^{'2}-\tau^2}}{4ln2}$</h2></b>
       </div><br>
 
 
       <fieldset class="input">
         <legend><b>Input</b></legend>
-        <div class="row bottom_align_row">
           <div class="col">
-            <h5>$\tau$ : </h5>
+            <h5>Incident laser pulse width $\tau$ : </h5>
             <div class="input-group">
-                <input  type="number" class="form-control" ng-model="tau" ng-change="myFunc()">
+                <input  type="number" id="tau1" class="form-control" onkeyup="do2();">
                 <span class="input-group-addon">$fs$</span>
             </div>
           </div>
-        </div>
-          <div class="row bottom_align_row">
           <div class="col">
-            <h5>$\tau '$ : </h5>
+            <h5>Outgoing laser pulse width $\tau '$ : </h5>
             <div class="input-group">
-                <input  type="number" class="form-control" ng-model="tau1" ng-change="myFunc()">
+                <input  type="number" id="tau2" class="form-control" onkeyup="do2();">
                 <span class="input-group-addon">$fs$</span>
-            </div>
+            </div><br>
           </div>
-        </div>
-      <br>
       </fieldset><br><br><br>
 
         <fieldset class="output">
           <legend><b>Output</b></legend>
-          <div class="row bottom_align_row">
 
             <div class="col">
               <h5>GDD :</h5>
               <div class="input-group">
-                  <input type="number" class="form-control" ng-model="gdd" readonly/>
+                  <input type="text" id="out1" class="form-control"  readonly/>
                   <span class="input-group-addon">$fs^2$</span>
-              </div>
+              </div><br>
             </div>
-          </div>
           <br>
 
 
@@ -103,36 +92,34 @@
     </div>
 
 
-    <div class ="coll">
-    <div class="banner" style="padding-left:10px; padding-top:1px; padding-bottom:5px;text-align: left">
-    <div class="banner-content">
-        <h4><span class="glyphicon glyphicon-map-marker"></span> Blk 71, #06-03, Ayer Rajah Crescent Singapore 139951
-          <br><br><span class="glyphicon glyphicon-phone"></span> +65 9025 2507
-          <br><br><span class="glyphicon glyphicon-envelope"></span> shawnks@simtrum.com</h4><br><br>
-    <a href="https://www.simtrum.com/WebShop/index.aspx"><p>https://www.simtrum.com/WebShop/index.aspx</p></a>
-    <div class="mapouter">
-      <div class="gmap_canvas">
-        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=1.2967%2C%20103.7872&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-        </iframe>
-      </div>
-      <style>.mapouter{position:relative;text-align:right;height:150%;width:98%;}.gmap_canvas {overflow:hidden;background:none!important;height:150%;width:98%;}
-        </style>
-      </div>
-</div>
-</div></div>
   </body>
 
 
 
   <script>
-      angular.module('main', [])
-        .controller('control_panel', ['$scope', function($scope) {
 
-          $scope.myFunc = function() {
-$scope.gdd=($scope.tau*Math.sqrt(($scope.tau1^2)-($scope.tau^2)))/(4*Math.LN2);
 
-          };
-        }]);
+  function do2()
+    {
+    	var pin2=document.getElementById("tau2");
+    	var pin1=document.getElementById("tau1");
+    	var tin1=pin1.value*Math.pow(10,-15);
+      var tin2=pin2.value*Math.pow(10,-15);
+    	//var GDD=GDDv.value*Math.pow(10,-30);
+
+    	var tout=GDD2t(tin1,tin2);
+      var outv=tout*Math.pow(10,30);
+
+    	var disp1=document.getElementById("out1");
+      disp1.value=outv.toFixed(3);
+    }
+    function GDD2t(tin1,tin2)
+{
+  var out1= tin1*Math.sqrt(Math.pow(tin2,2)-Math.pow(tin1,2));
+  var out2= 4*Math.LN2;
+	var tout=out1/out2;
+	return tout;
+}
     </script>
 
 
