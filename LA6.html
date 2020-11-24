@@ -55,21 +55,21 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 		<fieldset class="input">
         <legend>Input</legend>
 
-          <div class="col-xs-4">
+          <div class="col">
             <h5>Damage threshold before conversion, LIDT : </h5>
             <div class="input-group">
                 <input  type="number" class="form-control" ng-model="LIDT" ng-change="myFunc()">
                 <span class="input-group-addon">$J/cm^2$</span>
             </div><br>
           </div>
-          <div class="col-xs-4">
+          <div class="col">
             <h5>Pulse width before conversion, $\tau$: </h5>
             <div class="input-group">
                 <input  type="number" class="form-control" ng-model="tau" ng-change="myFunc()">
                 <span class="input-group-addon">ns</span>
             </div>
           </div>
-            <div class="col-xs-4">
+            <div class="col">
               <h5>Pulse width after conversion, $\tau '$</h5>
               <div class="input-group">
                   <input type="number" class="form-control" ng-model="tau2" ng-change="myFunc()">
@@ -80,7 +80,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
         <fieldset class="output">
           <legend>Output</legend>
-              <div class="col-xs-4">
+              <div class="col">
                 <h5>Damage threshold after conversion, LIDT':</h5>
                 <div class="input-group">
                     <input type="number" class="form-control" ng-model="LIDT2" readonly/>

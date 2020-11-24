@@ -52,28 +52,28 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 		<fieldset class="input">
         <legend>Input</legend>
 
-          <div class="col-xs-3">
+          <div class="col">
             <h5>Thermo-optical coefficient,dn/dT: </h5>
             <div class="input-group">
                 <input  type="number" class="form-control" ng-model="thermo" ng-change="myFunc()">
                 <span class="input-group-addon">-/mk</span>
             </div><br>
           </div>
-          <div class="col-xs-3">
+          <div class="col">
             <h5>heat conductivity, $k$: </h5>
             <div class="input-group">
                 <input  type="number" class="form-control" ng-model="heat" ng-change="myFunc()">
                 <span class="input-group-addon">W/mK</span>
             </div>
           </div>
-            <div class="col-xs-3">
+            <div class="col">
               <h5> Pump light radius, $r$</h5>
               <div class="input-group">
                   <input type="number" class="form-control" ng-model="light" ng-change="myFunc()">
                   <span class="input-group-addon">$\mu m$</span>
               </div>
             </div>
-			<div class="col-xs-3">
+			<div class="col">
               <h5>Thermal power, P</h5>
               <div class="input-group">
                   <input type="number" class="form-control" ng-model="power" ng-change="myFunc()">
@@ -84,7 +84,7 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
         <fieldset class="output">
           <legend>Output</legend>
-              <div class="col-xs-3">
+              <div class="col">
                 <h5>focal length , f:</h5>
                 <div class="input-group">
                     <input type="number" class="form-control" ng-model="focal" readonly/>
