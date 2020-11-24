@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/calculator.css">
+    <link rel="stylesheet" type="text/css" href="/WebShop/css/calculator.css">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAlign: "center"});
+</script>
+
+  <script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+      <meta name="keywords" content="Calculator of Spatial distribution of Gaussian beams">
+      <meta name="description" content="SIMTRUM （Tel +65 9025 2507）is a Singapore based optical store and photonics company who is supporting the leading research groups. We provide a wide range of quality photonics products including laser safety glass, laser lenses, caf2 lens, pellin broca prisma, optics and photonics,caf2 cylindrical lens, rhomboid prism, brewster window in laser, bandpass filter, dichroic beamsplitters, concave spherical lens and so on via online simulation tools like  laser safety glasses od calculator. We also deliver One-Stop technological solutions to make customers more accessible affordable and exciting on applications of photonic technologies.">
+      <title>Light Analysis Calculator</title>
+</head>
+  <body ng-app="main">
+
+
+
+        <div class="row" id="Diffraction_limited" ng-controller="control_panel">
+
+          <div class="col">
+
+
+          <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
+    -->
+
+      <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
+      <div class="banner-content">
+        <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Calculator of Spatial distribution of Gaussian beams </h1><br>
+
+      </div>
+      </div>
+
+          </div>
+
+          <div class="col">
+            <div id="info_Diffraction_limited" class="collapse" >
+              <p style:"text-align:left">This calculator will help you to compute the Spatial distribution of Gaussian beams  </p>
+              <img src="image/LA3-resize.png">
+          <b><h2> $\theta = \frac{2\lambda}{\pi w_0} $,&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ R_z = z [1+ (\frac{Z_R}{z})^2]$</h2></b>
+          <b><h2> $Z_R = \frac{\pi w_0^2}{\lambda}  $,&nbsp; &nbsp; &nbsp; &nbsp;$ w_z = w_0\sqrt{1+(\frac{z}{Z_R})^2}$</h2></b>
+          <p><b>$w_0$</b> is the laser waist spot radius, <b>$\theta$</b> is the far-field divergence angle, <b>$\lambda$</b> is the light wavelength, <b>$Z_R$</b> is the Rayleigh length, <b>$w_z$</b> is the spot radius at z from the waist spot, and <b>$R_z$</b> is the radius of curvature of the wave surface.</p>
+          </div><br>
+
+		<fieldset class="input">
+        <legend>Input</legend>
+
+          <div class="col-xs-4">
+            <h5>Laser wavelength , $\lambda$: </h5>
+            <div class="input-group">
+                <input  type="number" class="form-control" ng-model="wavelength" ng-change="myFunc()">
+                <span class="input-group-addon">nm</span>
+            </div><br>
+          </div>
+          <div class="col-xs-4">
+            <h5>Beam waist radius, $w_0$: </h5>
+            <div class="input-group">
+                <input  type="number" class="form-control" ng-model="radius" ng-change="myFunc()">
+                <span class="input-group-addon">mm</span>
+            </div>
+          </div>
+            <div class="col-xs-4">
+              <h5>Distance from waist, $z$</h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="distance" ng-change="myFunc()">
+                  <span class="input-group-addon">mm</span>
+              </div><br>
+            </div><br>
+      </fieldset><br>
+
+        <fieldset class="output">
+          <legend>Output</legend>
+              <div class="col-xs-3">
+                <h5>Far-field divergence angle:</h5>
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="divergence" readonly/>
+                    <span class="input-group-addon">mrad</span>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <h5>Rayleigh length:</h5>
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="rayleigh" readonly/>
+                    <span class="input-group-addon">mm</span>
+                </div>
+              </div>
+
+            <div class="col-xs-3">
+              <h5>Spot radius at z:</h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="spot" readonly/>
+                  <span class="input-group-addon">mm</span>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <h5>Radius at z:</h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="z" readonly/>
+                  <span class="input-group-addon">mm</span>
+              </div><br>
+            </div>
+      </fieldset>
+    </div>
+  </body>
+
+
+
+  <script>
+       angular.module('main', [])
+      .controller('control_panel', ['$scope', function($scope) {
+
+
+
+        $scope.myFunc = function() {
+
+
+		  $scope.divergence=(2*$scope.wavelength)/(Math.PI*$scope.radius)*1e-3;
+		  $scope.rayleigh=(Math.PI*$scope.radius*$scope.radius)/$scope.wavelength*1e6;
+		  $scope.spot=$scope.radius*Math.sqrt(1+Math.pow(($scope.distance/$scope.rayleigh),2))*1e-1;
+		  $scope.z=$scope.distance*(1+Math.pow(($scope.rayleigh/$scope.distance),2));
+        };
+      }]);
+  </script>
+
+
+
+
+
+
+
+
+
+
+     <!--INPUT-->
+   <style>
+     fieldset {
+       background-color: #e6e6e6;
+     }
+
+   </style>
+
+   <!--OUTPUT-->
+   <style>
+     legend {
+       font-size: 180%;
+       border-radius: 10px 10px 0 0;
+       background-image: linear-gradient(to  bottom  , lightblue,#03448c 90%);
+       background-color: #668cff;
+       color: white;
+       text-align: center;
+       font-weight: bold;
+     }
+   </style>
+
+</html>

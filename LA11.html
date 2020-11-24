@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/calculator.css">
     <link rel="stylesheet" type="text/css" href="/WebShop/css/calculator.css">
 
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -20,71 +19,76 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
   <script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <meta name="keywords" content="Calculator of damage threshold conversion">
+  <meta name="keywords" content="Calculator of thermal lens focal length">
   <meta name="description" content="SIMTRUM （Tel +65 9025 2507）is a Singapore based optical store and photonics company who is supporting the leading research groups. We provide a wide range of quality photonics products including laser safety glass, laser lenses, caf2 lens, pellin broca prisma, optics and photonics,caf2 cylindrical lens, rhomboid prism, brewster window in laser, bandpass filter, dichroic beamsplitters, concave spherical lens and so on via online simulation tools like  laser safety glasses od calculator. We also deliver One-Stop technological solutions to make customers more accessible affordable and exciting on applications of photonic technologies.">
   <title>Light Analysis Calculator</title>
 </head>
   <body ng-app="main">
 
 
-    <div class="row" id="Diffraction_limited" ng-controller="control_panel">
+        <div class="row" id="Diffraction_limited" ng-controller="control_panel">
 
-      <div class="col">
+          <div class="col">
 
 
-      <!--  <h1 class="title">Diffraction-limited angular resolution<small><span data-toggle="collapse" data-target="#info_Diffraction_limited" class="glyphicon glyphicon-collapse-down"></span></small></h1>
-    -->
+                <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
+                <div class="banner-content">
+                <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Calculator of thermal lens focal length </h1><br>
+              </div>
+              </div>
+            </div>
 
-    <div class="banner" data-toggle="collapse" data-target="#info_Diffraction_limited" class="btn btn-default btn-sm">
-    <div class="banner-content">
-    <h1 class="title"> <span class="fa fa-chevron-down"></span>&nbsp;&nbsp;Calculator of damage threshold conversion </h1><br>
-  </div>
-  </div>
+            <div class="col">
+              <div id="info_Diffraction_limited" class="collapse" >
+                <p style:"text-align:left">This calculator will help you to compute the thermal lens focal length </p>
+                <img src="image/LA11-resize.png">
+            <b><h2>$f=\frac{2kAP}{dn/dT}$</h2>
+            <h2>$A=\pi r^2 $</h2></b>
 
-      </div>
+            <p> Thermo-optical coefficient <b>$dn/dT$</b> ,heat conductivity <b>$k$</b> ,Pump light radius <b>$r$</b> ,Thermal power <b>$P$</b>
 
-      <div class="col">
-        <div id="info_Diffraction_limited" class="collapse" >
-          <p style:"text-align:left">This calculator will help you to compute the damage threshold conversion</p>
-          <img src="image/LA6-resize.png">
-			<b><h2> $LIDT'=LIDT\sqrt{\frac{\tau}{\tau '}}$</h2></b>
-			<p>Damage threshold before conversion <b>LIDT</b> ,Damage threshold after conversion <b>LIDT'</b> ,Pulse width before conversion <b>$\tau$</b>, Pulse width after conversion <b>$\tau '$</b>
-
-      </div><br>
+            </div><br>
 
 		<fieldset class="input">
         <legend>Input</legend>
 
-          <div class="col-xs-4">
-            <h5>Damage threshold before conversion, LIDT : </h5>
+          <div class="col-xs-3">
+            <h5>Thermo-optical coefficient,dn/dT: </h5>
             <div class="input-group">
-                <input  type="number" class="form-control" ng-model="LIDT" ng-change="myFunc()">
-                <span class="input-group-addon">$J/cm^2$</span>
+                <input  type="number" class="form-control" ng-model="thermo" ng-change="myFunc()">
+                <span class="input-group-addon">-/mk</span>
             </div><br>
           </div>
-          <div class="col-xs-4">
-            <h5>Pulse width before conversion, $\tau$: </h5>
+          <div class="col-xs-3">
+            <h5>heat conductivity, $k$: </h5>
             <div class="input-group">
-                <input  type="number" class="form-control" ng-model="tau" ng-change="myFunc()">
-                <span class="input-group-addon">ns</span>
+                <input  type="number" class="form-control" ng-model="heat" ng-change="myFunc()">
+                <span class="input-group-addon">W/mK</span>
             </div>
           </div>
-            <div class="col-xs-4">
-              <h5>Pulse width after conversion, $\tau '$</h5>
+            <div class="col-xs-3">
+              <h5> Pump light radius, $r$</h5>
               <div class="input-group">
-                  <input type="number" class="form-control" ng-model="tau2" ng-change="myFunc()">
-                  <span class="input-group-addon">ns</span>
+                  <input type="number" class="form-control" ng-model="light" ng-change="myFunc()">
+                  <span class="input-group-addon">$\mu m$</span>
+              </div>
+            </div>
+			<div class="col-xs-3">
+              <h5>Thermal power, P</h5>
+              <div class="input-group">
+                  <input type="number" class="form-control" ng-model="power" ng-change="myFunc()">
+                  <span class="input-group-addon">W</span>
               </div><br>
             </div><br>
       </fieldset><br>
 
         <fieldset class="output">
           <legend>Output</legend>
-              <div class="col-xs-4">
-                <h5>Damage threshold after conversion, LIDT':</h5>
+              <div class="col-xs-3">
+                <h5>focal length , f:</h5>
                 <div class="input-group">
-                    <input type="number" class="form-control" ng-model="LIDT2" readonly/>
-                    <span class="input-group-addon">$J/cm^2$</span>
+                    <input type="number" class="form-control" ng-model="focal" readonly/>
+                    <span class="input-group-addon">mm</span>
                 </div><br>
               </div>
 
@@ -101,8 +105,8 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
 
 
         $scope.myFunc = function() {
-         $scope.LIDT2=$scope.LIDT*(Math.sqrt($scope.tau/$scope.tau2));
-
+		A=Math.PI*Math.pow($scope.light,2)
+        $scope.focal=(2*$scope.heat*A*$scope.power)/$scope.thermo*1e-9;
 
 	   };
       }]);
@@ -136,5 +140,4 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},displayAli
     font-weight: bold;
   }
 </style>
-
 </html>
